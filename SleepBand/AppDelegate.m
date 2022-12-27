@@ -44,15 +44,15 @@
     
     [self registerUserNotification];
     
-    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
-    //关闭深夜模式
-    if (@available(iOS 13.0, *)) {
-        self.window.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
-    }
-    self.window.rootViewController = [[WelcomePageViewController alloc]initWithNibName:@"WelcomePageViewController" bundle:[NSBundle mainBundle]];
-    [self.window makeKeyAndVisible];
+  //  [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    //关闭深夜模式
+//    if (@available(iOS 13.0, *)) {
+//        self.window.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
+//    }
+//    self.window.rootViewController = [[WelcomePageViewController alloc]initWithNibName:@"WelcomePageViewController" bundle:[NSBundle mainBundle]];
+//    [self.window makeKeyAndVisible];
     
     
     
