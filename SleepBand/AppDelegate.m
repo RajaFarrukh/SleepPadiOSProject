@@ -10,6 +10,8 @@
 #import "WelcomePageViewController.h"
 #import <UserNotifications/UserNotifications.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
+#import "MainTabBarViewController.h"
+
 @interface AppDelegate ()<UNUserNotificationCenterDelegate>
 @end
 
@@ -44,15 +46,15 @@
     
     [self registerUserNotification];
     
-  //  [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    //关闭深夜模式
-//    if (@available(iOS 13.0, *)) {
-//        self.window.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
-//    }
-//    self.window.rootViewController = [[WelcomePageViewController alloc]initWithNibName:@"WelcomePageViewController" bundle:[NSBundle mainBundle]];
-//    [self.window makeKeyAndVisible];
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    //关闭深夜模式
+    if (@available(iOS 13.0, *)) {
+        self.window.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
+    }
+    self.window.rootViewController = [[WelcomePageViewController alloc]initWithNibName:@"WelcomePageViewController" bundle:[NSBundle mainBundle]];
+    [self.window makeKeyAndVisible];
     
     
     
@@ -186,7 +188,17 @@
 {
     if (self.mainNavigation == nil)
     {
-       self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:[[SearchDeviceViewController alloc]initWithNibName:@"SearchDeviceViewController" bundle: [NSBundle mainBundle]]];
+//       self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:[[SearchDeviceViewController alloc]initWithNibName:@"SearchDeviceViewController" bundle: [NSBundle mainBundle]]];
+       
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MainTabBarViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"];
+        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:controller];
+        
+        //[[UINavigationController alloc]initWithRootViewController:[[SearchDeviceViewController alloc]initWithNibName:@"MainTabBarViewController" bundle: [NSBundle mainBundle]]];
+        
+        
+        //[[MainTabBarViewController alloc] initWithNibName:@"MainTabBarViewController" bundle:[NSBundle mainBundle]];
+         
         
     }else
     {

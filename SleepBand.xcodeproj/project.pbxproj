@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4569DD0F295D8BBA006A5E4A /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4569DD0E295D8BBA006A5E4A /* MainTabBarViewController.m */; };
+		4569DD13295D91AD006A5E4A /* SPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4569DD12295D91AD006A5E4A /* SPHomeViewController.m */; };
 		4AC958CE1F91B7CAD555C252 /* Pods_SleepBand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EEAAA439B351AED0BBB4DA7 /* Pods_SleepBand.framework */; };
 		697DF52C291982A800197360 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 697DF52B291982A800197360 /* LoginViewController.xib */; };
 		6989B72F291A2D61008FA36C /* WelcomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6989B72E291A2D61008FA36C /* WelcomePageViewController.xib */; };
@@ -328,6 +330,11 @@
 /* Begin PBXFileReference section */
 		301622C8285F08C5A017EEFF /* Pods-SleepBand.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepBand.release.xcconfig"; path = "Pods/Target Support Files/Pods-SleepBand/Pods-SleepBand.release.xcconfig"; sourceTree = "<group>"; };
 		3A2895D89F3641C8C5875F48 /* Pods-SleepBand.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepBand.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SleepBand/Pods-SleepBand.debug.xcconfig"; sourceTree = "<group>"; };
+		4569DD09295D8A7B006A5E4A /* MainTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
+		4569DD0D295D8BBA006A5E4A /* MainTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
+		4569DD0E295D8BBA006A5E4A /* MainTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
+		4569DD11295D91AD006A5E4A /* SPHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPHomeViewController.h; sourceTree = "<group>"; };
+		4569DD12295D91AD006A5E4A /* SPHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPHomeViewController.m; sourceTree = "<group>"; };
 		697DF52B291982A800197360 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		6989B72E291A2D61008FA36C /* WelcomePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomePageViewController.xib; sourceTree = "<group>"; };
 		6999EFF6291EC497000ECBCF /* SearchDeviceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchDeviceViewController.xib; sourceTree = "<group>"; };
@@ -779,6 +786,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4569DD0C295D8A87006A5E4A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4569DD10295D9180006A5E4A /* MainTabBarViewController */,
+				4569DD14295D91B0006A5E4A /* SPHomeViewController */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4569DD10295D9180006A5E4A /* MainTabBarViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4569DD0D295D8BBA006A5E4A /* MainTabBarViewController.h */,
+				4569DD0E295D8BBA006A5E4A /* MainTabBarViewController.m */,
+			);
+			path = MainTabBarViewController;
+			sourceTree = "<group>";
+		};
+		4569DD14295D91B0006A5E4A /* SPHomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4569DD11295D91AD006A5E4A /* SPHomeViewController.h */,
+				4569DD12295D91AD006A5E4A /* SPHomeViewController.m */,
+			);
+			path = SPHomeViewController;
+			sourceTree = "<group>";
+		};
 		8404BA7C21C0B00C00D711EC /* dbdata */ = {
 			isa = PBXGroup;
 			children = (
@@ -876,6 +910,7 @@
 				846D953B20EDFD1C009EF565 /* Personal */,
 				846D952A20EDFADF009EF565 /* Login */,
 				84AAFAF2228E92BF00C9F037 /* Basic */,
+				4569DD0C295D8A87006A5E4A /* ViewControllers */,
 				84ABAE9721105FF2009481AA /* SleepBand.entitlements */,
 				845AEBAF21226B5600CE1831 /* Main.storyboard */,
 				845AEBB221226F7500CE1831 /* LaunchScreen.storyboard */,
@@ -886,6 +921,7 @@
 				846D952420EDF8A7009EF565 /* Localizable.strings */,
 				84EF815F21DDF84C00445F37 /* InfoPlist.strings */,
 				8474C7BE237D61A9007A8580 /* SleepBand-Bridging-Header.h */,
+				4569DD09295D8A7B006A5E4A /* MainTabBarViewController.h */,
 			);
 			path = SleepBand;
 			sourceTree = "<group>";
@@ -1870,6 +1906,7 @@
 				843083FE212ECE18002D618B /* DeviceUpdateViewController.m in Sources */,
 				84570F0721072445009D4214 /* SleepMainViewController.m in Sources */,
 				846D951320EDF724009EF565 /* NSString+Plus.m in Sources */,
+				4569DD0F295D8BBA006A5E4A /* MainTabBarViewController.m in Sources */,
 				846D94ED20EDF719009EF565 /* BlueToothManager.m in Sources */,
 				8477CBF022A6038D0039BFF3 /* XYWWeekBackView.m in Sources */,
 				84672B0520F8A94300E688B9 /* HelpViewController.m in Sources */,
@@ -1941,6 +1978,7 @@
 				846D954720EDFD6C009EF565 /* AlarmClockMainViewController.m in Sources */,
 				846B3543211D88440025CEC1 /* SleepCurveTool.mm in Sources */,
 				8477CBE622A52C5D0039BFF3 /* AAColor.m in Sources */,
+				4569DD13295D91AD006A5E4A /* SPHomeViewController.m in Sources */,
 				8477CBD022A52C5D0039BFF3 /* AAPlotBandsElement.m in Sources */,
 				8477CBE022A52C5D0039BFF3 /* AAPie.m in Sources */,
 				846D954A20EDFD81009EF565 /* PersonalMainViewController.m in Sources */,

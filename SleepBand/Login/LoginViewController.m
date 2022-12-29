@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "SearchDeviceViewController.h"
 #import <SafariServices/SafariServices.h>
+#import "MainTabBarViewController.h"
 
 
 
@@ -316,9 +317,14 @@
         
     }else{
         //  没有连接过设备就跳到选择设备界面
-        SearchDeviceViewController *search = [[SearchDeviceViewController alloc]initWithNibName:@"SearchDeviceViewController" bundle: [NSBundle mainBundle]];
-        search.isPushWithLogin = YES;
-        [self.navigationController pushViewController:search animated:YES];
+//        SearchDeviceViewController *search = [[SearchDeviceViewController alloc]initWithNibName:@"SearchDeviceViewController" bundle: [NSBundle mainBundle]];
+//        search.isPushWithLogin = YES;
+//        [self.navigationController pushViewController:search animated:YES];
+        ///////// Code Added by Farrukh Raja
+
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MainTabBarViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"];
+        [self.navigationController pushViewController:controller animated:YES];
     }
 }
 #pragma mark - 选择国家
@@ -525,10 +531,16 @@
             if ([SAMKeychain setPassword:password forService:serviceName account:account]) {
                 NSLog(@"存储账号密码成功");
             }
-            SearchDeviceViewController *search = [[SearchDeviceViewController alloc]initWithNibName:@"SearchDeviceViewController" bundle: [NSBundle mainBundle]];
-            search.isPushWithLogin = YES;
-            [weakSelf.navigationController pushViewController:search animated:YES];
-        }else{
+//            SearchDeviceViewController *search = [[SearchDeviceViewController alloc]initWithNibName:@"SearchDeviceViewController" bundle: [NSBundle mainBundle]];
+//            search.isPushWithLogin = YES;
+//            [weakSelf.navigationController pushViewController:search animated:YES];
+            
+            ///////// Code Added by Farrukh Raja
+            MainTabBarViewController *objMainTabBarViewController = [[MainTabBarViewController alloc] initWithNibName:@"MainTabBarViewController" bundle:[NSBundle mainBundle]];
+            [self.navigationController pushViewController:objMainTabBarViewController animated:YES];
+            
+            
+        } else {
             [weakSelf.navigationController popToRootViewControllerAnimated:YES];
         }
     }];
