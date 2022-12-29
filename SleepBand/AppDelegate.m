@@ -57,7 +57,6 @@
     [self.window makeKeyAndVisible];
     
     
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onVolumeChanged:) name:@"AVSystemController_SystemVolumeDidChangeNotification" object:nil];
     
     //设置默认服务器域名为：正式服务器

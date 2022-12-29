@@ -60,13 +60,14 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (XYWDayBackView *)dayBackView{
+- (XYWDayBackView *)dayBackView {
     if (_dayBackView == nil) {
         _dayBackView = [[XYWDayBackView alloc]init];
         _dayBackView.backgroundColor = [UIColor whiteColor];
     }
     return _dayBackView;
 }
+
 - (XYWWeekBackView *)weekBackView{
     if (_weekBackView == nil) {
         _weekBackView = [[XYWWeekBackView alloc]init];
@@ -74,6 +75,7 @@
     }
     return _weekBackView;
 }
+
 - (XYWWeekBackView *)monthBackView{
     if (_monthBackView == nil) {
         _monthBackView = [[XYWWeekBackView alloc]init];
@@ -506,16 +508,16 @@
     WS(weakSelf);
     self.view.backgroundColor = [UIColor whiteColor];//背景
     //左栏菜单
-    UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [menuButton setImage:[UIImage imageNamed:@"sleep_icon_meny"] forState:UIControlStateNormal];
-    [self.view addSubview:menuButton];
-    [menuButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weakSelf.view.mas_top).offset(kStatusBarHeight);
-        make.left.mas_equalTo(weakSelf.view.mas_left).offset(0);
-        make.height.equalTo(@44);
-        make.width.equalTo(@54);
-    }];
-    [menuButton addTarget:self action:@selector(menuBtnTouch) forControlEvents:UIControlEventTouchUpInside];
+//    UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [menuButton setImage:[UIImage imageNamed:@"sleep_icon_meny"] forState:UIControlStateNormal];
+//    [self.view addSubview:menuButton];
+//    [menuButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.mas_equalTo(weakSelf.view.mas_top).offset(kStatusBarHeight);
+//        make.left.mas_equalTo(weakSelf.view.mas_left).offset(0);
+//        make.height.equalTo(@44);
+//        make.width.equalTo(@54);
+//    }];
+//    [menuButton addTarget:self action:@selector(menuBtnTouch) forControlEvents:UIControlEventTouchUpInside];
     
     //标题
     UILabel *titleLabel = [[UILabel alloc]init];
@@ -523,7 +525,7 @@
     titleLabel.font = kControllerTitleFont;
     titleLabel.textColor = kControllerTitleColor;
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.text = @"Report";
+    titleLabel.text = @"DASHBOARD";
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.view.mas_top).offset(kStatusBarHeight);
         make.centerX.equalTo(weakSelf.view);
@@ -532,16 +534,16 @@
     }];
 
     //刷新按钮
-    self.refreshBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.refreshBtn setImage:[UIImage imageNamed:@"report_btn_refresh"] forState:UIControlStateNormal];
-    [self.view addSubview:self.refreshBtn];
-    [self.refreshBtn addTarget:self action:@selector(xyw_syncAllSleepData) forControlEvents:UIControlEventTouchUpInside];
-    [self.refreshBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weakSelf.view.mas_top).offset(kStatusBarHeight+(44-25.5)/2);
-        make.right.mas_equalTo(weakSelf.view.mas_right).offset(-20-25.5-12);
-        make.width.equalTo(@25.5);
-        make.height.equalTo(@25.5);
-    }];
+//    self.refreshBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [self.refreshBtn setImage:[UIImage imageNamed:@"report_btn_refresh"] forState:UIControlStateNormal];
+//    [self.view addSubview:self.refreshBtn];
+//    [self.refreshBtn addTarget:self action:@selector(xyw_syncAllSleepData) forControlEvents:UIControlEventTouchUpInside];
+//    [self.refreshBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.mas_equalTo(weakSelf.view.mas_top).offset(kStatusBarHeight+(44-25.5)/2);
+//        make.right.mas_equalTo(weakSelf.view.mas_right).offset(-20-25.5-12);
+//        make.width.equalTo(@25.5);
+//        make.height.equalTo(@25.5);
+//    }];
     
     //选择日期按钮
     UIButton *selectDateBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -554,7 +556,7 @@
         make.width.equalTo(@25.5);
         make.height.equalTo(@25.5);
     }];
-    
+
     self.reportRangeDataSelectView = [[XYWReportRangeDataSelectView alloc]init];
     self.reportRangeDataSelectView.delegate = self;
     [self.view addSubview:self.reportRangeDataSelectView];

@@ -7,6 +7,7 @@
 //
 
 #import "SPHomeViewController.h"
+#import "SearchDeviceViewController.h"
 
 @interface SPHomeViewController ()
 
@@ -39,7 +40,9 @@
  // Desc: Action method for setup an alarm button
  */
 - (IBAction)onbtnSetupAlaram:(id)sender {
-    
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AlarmClockMainViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"AlarmClockMainViewController"];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 /*
@@ -47,7 +50,9 @@
  // Desc: Action method for start monitor button
  */
 - (IBAction)onbtnStartMonitor:(id)sender {
-    
+    SearchDeviceViewController *search = [[SearchDeviceViewController alloc]initWithNibName:@"SearchDeviceViewController" bundle: [NSBundle mainBundle]];
+    search.isPushWithLogin = YES;
+    [self.navigationController pushViewController:search animated:YES];
 }
 
 /*
@@ -55,7 +60,7 @@
  // Desc: Action method for watch demo button
  */
 - (IBAction)onBtnWatchDemo:(id)sender {
-    NSString *videoURL = @"youtube://www.youtube.com/watch?v=9xwazD5SyVg";
+    NSString *videoURL = @"youtube://www.youtube.com/watch?v=MRUqScOHbH4&feature=youtu.be";
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:videoURL]]) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:videoURL]];
     }

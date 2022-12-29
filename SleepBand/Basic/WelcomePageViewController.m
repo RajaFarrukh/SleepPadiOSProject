@@ -17,8 +17,8 @@
 @end
 
 @implementation WelcomePageViewController
--(void)dealloc
-{
+
+-(void)dealloc {
     [self.sendTimer invalidate];
     self.sendTimer = nil;
     
@@ -42,8 +42,7 @@
     
 }
 
--(void)countDown
-{
+-(void)countDown {
     if (self.sendTime == 1)
     {
         [self.sendTimer setFireDate:[NSDate distantFuture]];
@@ -59,6 +58,7 @@
     }
     
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     WS(weakSelf);
