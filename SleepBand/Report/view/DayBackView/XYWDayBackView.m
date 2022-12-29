@@ -510,7 +510,11 @@
     CGFloat awakeTime = 0;//清醒时长
     CGFloat allStateTime = 0;//总时长
     
+    if([MSCoreManager sharedManager].userModel.deviceCode == nil || [[MSCoreManager sharedManager].userModel.deviceCode  isEqual: @""]) {
+        return;
+    }
     NSMutableArray *dateSleepQualityArray = [SleepQualityModel searchWithWhere:@{/*@"uesrId":[NSString stringWithFormat:@"%d",[MSCoreManager sharedManager].userModel.userId],*/@"deviceName":[MSCoreManager sharedManager].userModel.deviceCode}];
+    
     if (dateSleepQualityArray.count>0) {
         SleepQualityModel * model = nil;
         for (int i = 0; i < dateSleepQualityArray.count; i++) {
@@ -680,6 +684,10 @@
     NSMutableArray * chartData = [NSMutableArray array];//存放波形图数据的数组
     int allData = 0;//总和
     int allDataNum = 0;//总和个数
+    if([MSCoreManager sharedManager].userModel.deviceCode == nil || [[MSCoreManager sharedManager].userModel.deviceCode  isEqual: @""]) {
+        return;
+    }
+    
     NSMutableArray * dateHeartRateArray = [HeartRateModel searchWithWhere:@{/*@"uesrId":[NSString stringWithFormat:@"%d",[MSCoreManager sharedManager].userModel.userId],*/@"deviceName":[MSCoreManager sharedManager].userModel.deviceCode}];
     if (dateHeartRateArray.count>0) {
         
@@ -755,6 +763,11 @@
     NSMutableArray * chartData = [NSMutableArray array];//存放波形图数据的数组
     int allData = 0;//总和
     int allDataNum = 0;//总和个数
+    
+    if([MSCoreManager sharedManager].userModel.deviceCode == nil || [[MSCoreManager sharedManager].userModel.deviceCode  isEqual: @""]) {
+        return;
+    }
+    
     NSMutableArray * datebreathRateArray = [RespiratoryRateModel searchWithWhere:@{/*@"uesrId":[NSString stringWithFormat:@"%d",[MSCoreManager sharedManager].userModel.userId],*/@"deviceName":[MSCoreManager sharedManager].userModel.deviceCode}];
     if (datebreathRateArray.count>0) {
         
@@ -826,6 +839,11 @@
     
     NSMutableArray * chartData = [NSMutableArray array];//存放波形图数据的数组
     int allData = 0;//总和
+    
+    if([MSCoreManager sharedManager].userModel.deviceCode == nil || [[MSCoreManager sharedManager].userModel.deviceCode  isEqual: @""]) {
+        return;
+    }
+    
     NSMutableArray * datebreathRateArray = [TurnOverModel searchWithWhere:@{/*@"uesrId":[NSString stringWithFormat:@"%d",[MSCoreManager sharedManager].userModel.userId],*/@"deviceName":[MSCoreManager sharedManager].userModel.deviceCode}];
     if (datebreathRateArray.count>0) {
         

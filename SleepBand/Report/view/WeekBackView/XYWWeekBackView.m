@@ -300,6 +300,10 @@
 //刷新-睡眠质量
 - (void)xyw_refreshSleepQualityDataWithDataArr:(NSArray*)selectDataArr{
     
+    if([MSCoreManager sharedManager].userModel.deviceCode == nil || [[MSCoreManager sharedManager].userModel.deviceCode  isEqual: @""]) {
+        return;
+    }
+    
     NSMutableArray *dateSleepQualityArray = [SleepQualityModel searchWithWhere:@{/*@"uesrId":[NSString stringWithFormat:@"%d",[MSCoreManager sharedManager].userModel.userId],*/@"deviceName":[MSCoreManager sharedManager].userModel.deviceCode}];
     
     if (dateSleepQualityArray.count == 0) {
@@ -493,6 +497,10 @@
 //刷新-心率数据
 - (void)xyw_refreshHeartRateDataWithDataArr:(NSArray*)selectDataArr{
 
+    if([MSCoreManager sharedManager].userModel.deviceCode == nil || [[MSCoreManager sharedManager].userModel.deviceCode  isEqual: @""]) {
+        return;
+    }
+    
     NSMutableArray *dateHeartRateArray = [HeartRateModel searchWithWhere:@{/*@"uesrId":[NSString stringWithFormat:@"%d",[MSCoreManager sharedManager].userModel.userId],*/@"deviceName":[MSCoreManager sharedManager].userModel.deviceCode}];
     
     if (dateHeartRateArray.count == 0) {
@@ -574,6 +582,10 @@
 }
 //刷新-呼吸数据
 - (void)xyw_refreshBreathRateDataWithDataArr:(NSArray*)selectDataArr{
+    
+    if([MSCoreManager sharedManager].userModel.deviceCode == nil || [[MSCoreManager sharedManager].userModel.deviceCode  isEqual: @""]) {
+        return;
+    }
     
     NSMutableArray *datebreathRateArray = [RespiratoryRateModel searchWithWhere:@{/*@"uesrId":[NSString stringWithFormat:@"%d",[MSCoreManager sharedManager].userModel.userId],*/@"deviceName":[MSCoreManager sharedManager].userModel.deviceCode}];
     
@@ -659,6 +671,10 @@
 //刷新-翻身数据
 - (void)xyw_refreshTurnOverDataWithDataArr:(NSArray*)selectDataArr{
 
+    if([MSCoreManager sharedManager].userModel.deviceCode == nil || [[MSCoreManager sharedManager].userModel.deviceCode  isEqual: @""]) {
+        return;
+    }
+    
     NSMutableArray *dateTurnOverArray = [TurnOverModel searchWithWhere:@{/*@"uesrId":[NSString stringWithFormat:@"%d",[MSCoreManager sharedManager].userModel.userId],*/@"deviceName":[MSCoreManager sharedManager].userModel.deviceCode}];
     
     if (dateTurnOverArray.count == 0) {
