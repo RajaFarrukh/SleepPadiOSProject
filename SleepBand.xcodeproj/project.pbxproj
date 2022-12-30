@@ -14,6 +14,8 @@
 		45CCEE01295ED018002B1DA3 /* HelpHeadingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45CCEDFF295ED018002B1DA3 /* HelpHeadingTableViewCell.m */; };
 		45E8810D295ED0C1007AF758 /* HelpHeadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45E8810C295ED0C1007AF758 /* HelpHeadingTableViewCell.xib */; };
 		4AC958CE1F91B7CAD555C252 /* Pods_SleepBand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EEAAA439B351AED0BBB4DA7 /* Pods_SleepBand.framework */; };
+		521C7C9C295F72A8008C7791 /* AccountInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 521C7C9A295F72A8008C7791 /* AccountInfoTableViewCell.m */; };
+		521C7C9D295F72A8008C7791 /* AccountInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521C7C9B295F72A8008C7791 /* AccountInfoTableViewCell.xib */; };
 		697DF52C291982A800197360 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 697DF52B291982A800197360 /* LoginViewController.xib */; };
 		6989B72F291A2D61008FA36C /* WelcomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6989B72E291A2D61008FA36C /* WelcomePageViewController.xib */; };
 		6999EFF7291EC497000ECBCF /* SearchDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6999EFF6291EC497000ECBCF /* SearchDeviceViewController.xib */; };
@@ -346,6 +348,9 @@
 		45CCEDFE295ED018002B1DA3 /* HelpHeadingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpHeadingTableViewCell.h; sourceTree = "<group>"; };
 		45CCEDFF295ED018002B1DA3 /* HelpHeadingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelpHeadingTableViewCell.m; sourceTree = "<group>"; };
 		45E8810C295ED0C1007AF758 /* HelpHeadingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpHeadingTableViewCell.xib; sourceTree = "<group>"; };
+		521C7C99295F72A8008C7791 /* AccountInfoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountInfoTableViewCell.h; sourceTree = "<group>"; };
+		521C7C9A295F72A8008C7791 /* AccountInfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountInfoTableViewCell.m; sourceTree = "<group>"; };
+		521C7C9B295F72A8008C7791 /* AccountInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountInfoTableViewCell.xib; sourceTree = "<group>"; };
 		697DF52B291982A800197360 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		6989B72E291A2D61008FA36C /* WelcomePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomePageViewController.xib; sourceTree = "<group>"; };
 		6999EFF6291EC497000ECBCF /* SearchDeviceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchDeviceViewController.xib; sourceTree = "<group>"; };
@@ -858,8 +863,19 @@
 			isa = PBXGroup;
 			children = (
 				45E88108295ED033007AF758 /* HelpHeadingTableViewCell */,
+				521C7C98295F727E008C7791 /* AccountInfoTableViewCell */,
 			);
 			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		521C7C98295F727E008C7791 /* AccountInfoTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				521C7C99295F72A8008C7791 /* AccountInfoTableViewCell.h */,
+				521C7C9A295F72A8008C7791 /* AccountInfoTableViewCell.m */,
+				521C7C9B295F72A8008C7791 /* AccountInfoTableViewCell.xib */,
+			);
+			path = AccountInfoTableViewCell;
 			sourceTree = "<group>";
 		};
 		8404BA7C21C0B00C00D711EC /* dbdata */ = {
@@ -1719,6 +1735,7 @@
 				8476CBA0221D59220039C181 /* report_bg_calendar_mouth@2x.png in Resources */,
 				845AEBB421226F7600CE1831 /* LaunchScreen.storyboard in Resources */,
 				8476CBA6221D59220039C181 /* report_bg_calendar_year@2x.png in Resources */,
+				521C7C9D295F72A8008C7791 /* AccountInfoTableViewCell.xib in Resources */,
 				8476CB94221D59220039C181 /* addalarm_repeat_bg_unselect@2x.png in Resources */,
 				8476CBA8221D59220039C181 /* sleep_bg_heart@2x.png in Resources */,
 				8476CBA7221D59220039C181 /* alarm_redevice_phone_off@2x.png in Resources */,
@@ -1958,6 +1975,7 @@
 				84570F0721072445009D4214 /* SleepMainViewController.m in Sources */,
 				846D951320EDF724009EF565 /* NSString+Plus.m in Sources */,
 				4569DD0F295D8BBA006A5E4A /* MainTabBarViewController.m in Sources */,
+				521C7C9C295F72A8008C7791 /* AccountInfoTableViewCell.m in Sources */,
 				846D94ED20EDF719009EF565 /* BlueToothManager.m in Sources */,
 				8477CBF022A6038D0039BFF3 /* XYWWeekBackView.m in Sources */,
 				84672B0520F8A94300E688B9 /* HelpViewController.m in Sources */,

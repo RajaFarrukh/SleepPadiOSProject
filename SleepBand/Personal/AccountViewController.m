@@ -12,6 +12,7 @@
 #import "BoundViewController.h"
 #import "ResetPasswordViewController.h"
 #import "AppDelegate.h"
+#import "AccountInfoTableViewCell.h"
 
 @interface AccountViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic)UITableView *accountTableView;
@@ -27,7 +28,8 @@
     [super viewDidLoad];
     self.coreManager = [MSCoreManager sharedManager];
     self.model = self.coreManager.userModel;
-    self.menuArray = @[NSLocalizedString(@"Email", nil),NSLocalizedString(@"Phone", nil),NSLocalizedString(@"AVC_ChangePasswordTitle", nil),NSLocalizedString(@"注销账号", nil)];
+    self.menuArray = @[NSLocalizedString(@"Email", nil),NSLocalizedString(@"Phone", nil),NSLocalizedString(@"AVC_ChangePasswordTitle", nil)];
+    //,NSLocalizedString(@"注销账号", nil)
     [self setUI];
 }
 #pragma mark - 退出登录
@@ -80,32 +82,60 @@
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    UniversalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.titleLabel.text = self.menuArray[indexPath.row];
-    cell.lineView.hidden = NO;
+    
+//    UniversalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    cell.titleLabel.text = self.menuArray[indexPath.row];
+//    cell.lineView.hidden = NO;
+//    if (indexPath.row == 0) {
+//        [cell setType:CellType_VauleArrows];
+//        if (self.model.email.length == 0)
+//        {
+//            cell.valueLabel.text = NSLocalizedString(@"AVC_UnBind", nil);
+//            
+//        } else {
+//            cell.valueLabel.text = self.model.email;
+//        }
+//    } else if (indexPath.row == 1) {
+//        [cell setType:CellType_VauleArrows];
+//        if (self.model.phoneNumber.length == 0) {
+//            cell.valueLabel.text = NSLocalizedString(@"AVC_UnBind", nil);
+//        } else {
+//            cell.valueLabel.text = self.model.phoneNumber;
+//        }
+//    } else {
+//        [cell setType:CellType_Arrows];
+//    }
+    
+    static NSString *CellIdentifier = @"AccountInfoCell";
+    AccountInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+       if (cell == nil)
+       {
+             cell = (AccountInfoTableViewCell *) [[[NSBundle mainBundle] loadNibNamed:@"AccountInfoTableViewCell" owner:self options:nil] lastObject];
+       }
     if (indexPath.row == 0) {
-        [cell setType:CellType_VauleArrows];
-        if (self.model.email.length == 0)
-        {
-            cell.valueLabel.text = NSLocalizedString(@"AVC_UnBind", nil);
-            
-        }else
-        {
-            cell.valueLabel.text = self.model.email;
-        }
-    }else if (indexPath.row == 1) {
-        [cell setType:CellType_VauleArrows];
+        cell.labelHeading.text = @"Email";
+        cell.labelValue.text = self.model.email;
+    } else if (indexPath.row == 1) {
+        cell.labelHeading.text = @"Phone Number";
         if (self.model.phoneNumber.length == 0) {
-            cell.valueLabel.text = NSLocalizedString(@"AVC_UnBind", nil);
-        }else{
-            cell.valueLabel.text = self.model.phoneNumber;
+            cell.labelValue.text = NSLocalizedString(@"AVC_UnBind", nil);
+        } else {
+            cell.labelValue.text = self.model.phoneNumber;
         }
-    }else{
-        [cell setType:CellType_Arrows];
+    } else {
+        cell.labelHeading.text = self.menuArray[indexPath.row];
+        cell.labelValue.text = @"";
     }
+    
+   
+    cell.backgroundMainView.layer.cornerRadius = 8.0;
+    cell.backgroundColor = [UIColor clearColor];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     return cell;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.row) {
         case 0://跳转邮箱绑定
@@ -143,6 +173,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 47;
 }
+
 -(void)tableViewDidSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     WS(weakSelf);
     if (indexPath.row == 0) {//邮箱
@@ -279,34 +310,34 @@
         make.bottom.mas_equalTo(weakSelf.view.mas_bottom).offset(-kTabbarSafeHeight-101);
     }];
     
-    UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kSCREEN_WIDTH, 100+150)];
-    UIButton *logoutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    logoutBtn.frame = CGRectMake((kSCREEN_WIDTH-68)/2-22.5, 42+150, 45, 36);
-    [logoutBtn setImage:[UIImage imageNamed:@"me_btn_logout"] forState:UIControlStateNormal];
-    [logoutBtn addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
-    [footerView addSubview:logoutBtn];
+//    UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kSCREEN_WIDTH, 100+150)];
+//    UIButton *logoutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    logoutBtn.frame = CGRectMake((kSCREEN_WIDTH-68)/2-22.5, 42+150, 45, 36);
+//    [logoutBtn setImage:[UIImage imageNamed:@"me_btn_logout"] forState:UIControlStateNormal];
+//    [logoutBtn addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
+//    [footerView addSubview:logoutBtn];
     
-    UILabel *logoutBtnTitleL = [[UILabel alloc]initWithFrame:CGRectMake((kSCREEN_WIDTH-68)/2-50, 42+150+78, 100, 15)];
-    logoutBtnTitleL.font = [UIFont systemFontOfSize:12 weight:UIFontWeightLight];
-    logoutBtnTitleL.textColor = [UIColor colorWithHexString:@"#575756"];
-    logoutBtnTitleL.textAlignment = NSTextAlignmentCenter;
-    logoutBtnTitleL.text = NSLocalizedString(@"AVC_Logout", nil);
-    [footerView addSubview:logoutBtnTitleL];
+//    UILabel *logoutBtnTitleL = [[UILabel alloc]initWithFrame:CGRectMake((kSCREEN_WIDTH-68)/2-50, 42+150+78, 100, 15)];
+//    logoutBtnTitleL.font = [UIFont systemFontOfSize:12 weight:UIFontWeightLight];
+//    logoutBtnTitleL.textColor = [UIColor colorWithHexString:@"#575756"];
+//    logoutBtnTitleL.textAlignment = NSTextAlignmentCenter;
+//    logoutBtnTitleL.text = NSLocalizedString(@"AVC_Logout", nil);
+//    [footerView addSubview:logoutBtnTitleL];
     
-    self.accountTableView.tableFooterView = footerView;
+ //   self.accountTableView.tableFooterView = footerView;
     
     self.accountTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.accountTableView registerClass:[UniversalTableViewCell class] forCellReuseIdentifier:@"cell"];
     
-    UIImageView *bottomImageV = [[UIImageView alloc]init];
-    bottomImageV.image = [UIImage imageNamed:@"search_bg_bottom"];
-    [self.view addSubview:bottomImageV];
-    [bottomImageV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(weakSelf.view.mas_bottom).offset(-kTabbarSafeHeight);
-        make.centerX.equalTo(weakSelf.view);
-        make.width.equalTo(@375);
-        make.height.equalTo(@101);
-    }];
+//    UIImageView *bottomImageV = [[UIImageView alloc]init];
+//    bottomImageV.image = [UIImage imageNamed:@"search_bg_bottom"];
+//    [self.view addSubview:bottomImageV];
+//    [bottomImageV mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.mas_equalTo(weakSelf.view.mas_bottom).offset(-kTabbarSafeHeight);
+//        make.centerX.equalTo(weakSelf.view);
+//        make.width.equalTo(@375);
+//        make.height.equalTo(@101);
+//    }];
     
     self.alertView = [[AlertView alloc]init];
 //    [self.view addSubview:self.alertView];
@@ -315,6 +346,7 @@
 //    }];
     
 }
+
 -(void)setUI2{
     WS(weakSelf);
     
@@ -382,6 +414,7 @@
 
     
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
