@@ -20,6 +20,7 @@ PODS:
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
+  - HGCircularSlider (2.2.0)
   - iOSDFULibrary (4.13.0):
     - ZIPFoundation (= 0.9.11)
   - IQKeyboardManager (6.5.10)
@@ -37,6 +38,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - Charts
+  - HGCircularSlider
   - iOSDFULibrary
   - IQKeyboardManager
   - LKDBHelper
@@ -51,6 +53,7 @@ SPEC REPOS:
     - AFNetworking
     - Charts
     - FMDB
+    - HGCircularSlider
     - iOSDFULibrary
     - IQKeyboardManager
     - LKDBHelper
@@ -65,6 +68,7 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  HGCircularSlider: afb1942743a2df156dcc7a3500216e523e14266b
   iOSDFULibrary: 3b9de67ed4bfb901b5f09c2fea843f65e152612d
   IQKeyboardManager: 45a1fa55c1a5b02c61ac0fd7fd5b62bb4ad20d97
   LKDBHelper: 9a276ba51f2e16263d46a9517e16cc9b03472664
@@ -75,6 +79,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   ZIPFoundation: b1f0de4eed33e74a676f76e12559ab6b75990197
 
-PODFILE CHECKSUM: 9472f16e71da55f7c548107162f391a1bf124bf1
+PODFILE CHECKSUM: 448f61456b77b67a418e03838389c2d76a447d64
 
 COCOAPODS: 1.11.3

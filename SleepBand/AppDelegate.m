@@ -219,15 +219,23 @@
 {
     if (self.mainNavigation == nil)
     {
-        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:[[SleepMainViewController alloc]init]];
+//        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:[[SleepMainViewController alloc]init]];
+        
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MainTabBarViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"];
+        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:controller];
         
     }else
     {
-        NSMutableArray *controllers = [NSMutableArray arrayWithArray:self.mainNavigation.viewControllers];
-        [controllers removeAllObjects];
-        controllers[0] = [[SleepMainViewController alloc] init];
-//        self.mainNavigation.viewControllers = controllers;
-        [self.mainNavigation setViewControllers:controllers];
+//        NSMutableArray *controllers = [NSMutableArray arrayWithArray:self.mainNavigation.viewControllers];
+//        [controllers removeAllObjects];
+//        controllers[0] = [[SleepMainViewController alloc] init];
+////        self.mainNavigation.viewControllers = controllers;
+//        [self.mainNavigation setViewControllers:controllers];
+        
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MainTabBarViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"];
+        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:controller];
         
     }
     self.window.rootViewController = self.mainNavigation;
@@ -240,16 +248,24 @@
     if (self.mainNavigation == nil)
     {
         
-        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:[[ReportMainViewController alloc]init]];
+//        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:[[ReportMainViewController alloc]init]];
+        
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MainTabBarViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"];
+        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:controller];
         
     }else
     {
-        NSMutableArray *controllers = [NSMutableArray arrayWithArray:self.mainNavigation.viewControllers];
-        [controllers removeAllObjects];
+//        NSMutableArray *controllers = [NSMutableArray arrayWithArray:self.mainNavigation.viewControllers];
+//        [controllers removeAllObjects];
+//
+//        controllers[0] = [[ReportMainViewController alloc] init];
+//        self.mainNavigation.viewControllers = controllers;
+//        [self.mainNavigation setViewControllers:controllers];
         
-        controllers[0] = [[ReportMainViewController alloc] init];
-        self.mainNavigation.viewControllers = controllers;
-        [self.mainNavigation setViewControllers:controllers];
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MainTabBarViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"];
+        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:controller];
         
     }
     self.window.rootViewController = self.mainNavigation;
@@ -283,15 +299,23 @@
 {
     if (self.mainNavigation == nil)
     {
-        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:[[AlarmClockMainViewController alloc]init]];
+//        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:[[AlarmClockMainViewController alloc]init]];
+        
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MainTabBarViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"];
+        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:controller];
         
     }else
     {
-        NSMutableArray *controllers = [NSMutableArray arrayWithArray:self.mainNavigation.viewControllers];
-        [controllers removeAllObjects];
-        controllers[0] = [[AlarmClockMainViewController alloc] init];
-//        self.mainNavigation.viewControllers = controllers;
-        [self.mainNavigation setViewControllers:controllers];
+//        NSMutableArray *controllers = [NSMutableArray arrayWithArray:self.mainNavigation.viewControllers];
+//        [controllers removeAllObjects];
+//        controllers[0] = [[AlarmClockMainViewController alloc] init];
+////        self.mainNavigation.viewControllers = controllers;
+//        [self.mainNavigation setViewControllers:controllers];
+        
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MainTabBarViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"];
+        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:controller];
         
     }
     self.window.rootViewController = self.mainNavigation;
@@ -303,15 +327,23 @@
 {
     if (self.mainNavigation == nil)
     {
-        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:[[PersonalMainViewController alloc]init]];
+//        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:[[PersonalMainViewController alloc]init]];
+        
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MainTabBarViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"];
+        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:controller];
         
     }else
     {
-        NSMutableArray *controllers = [NSMutableArray arrayWithArray:self.mainNavigation.viewControllers];
-        [controllers removeAllObjects];
-        controllers[0] = [[PersonalMainViewController alloc] init];
-//        self.mainNavigation.viewControllers = controllers;
-        [self.mainNavigation setViewControllers:controllers];
+//        NSMutableArray *controllers = [NSMutableArray arrayWithArray:self.mainNavigation.viewControllers];
+//        [controllers removeAllObjects];
+//        controllers[0] = [[PersonalMainViewController alloc] init];
+////        self.mainNavigation.viewControllers = controllers;
+//        [self.mainNavigation setViewControllers:controllers];
+        
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MainTabBarViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"];
+        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:controller];
         
     }
     self.window.rootViewController = self.mainNavigation;

@@ -9,6 +9,7 @@
 #import "HelpViewController.h"
 #import "UniversalTableViewCell.h"
 #import "InformationViewController.h"
+#import "HelpHeadingTableViewCell.h"
 
 @interface HelpViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic)UITableView *tableView;
@@ -25,39 +26,6 @@
     [self setUI];
 }
 
--(void)back
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-#pragma mark - UITableViewDelegate
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.titleArray.count;
-}
-- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    UniversalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.titleLabel.text = self.titleArray[indexPath.row];
-    cell.isInfo = YES;
-    cell.lineView.hidden = NO;
-    [cell setType:CellType_Arrows];
-    return cell;
-}
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    InformationViewController *info = [[InformationViewController alloc]init];
-    info.navTitleStr = NSLocalizedString(@"PMVC_CommonProblemTitle", nil);
-    info.titleStr = self.titleArray[indexPath.row];
-
-    if (indexPath.row == 0) {
-        info.isOperationGuide = YES;
-    }else{
-        info.valueStr = self.infoArray[indexPath.row];
-    }
-    [self.navigationController pushViewController:info animated:YES];
-}
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return kCellHeight;
-}
 -(void)setUI{
     WS(weakSelf);
     
@@ -85,7 +53,7 @@
     UILabel *titleLabel = [[UILabel alloc]init];
     [self.view addSubview:titleLabel];
     titleLabel.font = kControllerTitleFont;
-    titleLabel.textColor = kControllerTitleColor;
+    titleLabel.textColor = [UIColor whiteColor];//kControllerTitleColor;
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.text = NSLocalizedString(@"PMVC_HelpTitle", nil);
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -124,20 +92,76 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[UniversalTableViewCell class] forCellReuseIdentifier:@"cell"];
     
-    UIImageView *bottomImageV = [[UIImageView alloc]init];
-    bottomImageV.image = [UIImage imageNamed:@"search_bg_bottom"];
-    [self.view addSubview:bottomImageV];
-    [bottomImageV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(weakSelf.view.mas_bottom).offset(-kTabbarSafeHeight);
-        make.centerX.equalTo(weakSelf.view);
-        make.width.equalTo(@375);
-        make.height.equalTo(@101);
-    }];
+//    UIImageView *bottomImageV = [[UIImageView alloc]init];
+//    bottomImageV.image = [UIImage imageNamed:@"search_bg_bottom"];
+//    [self.view addSubview:bottomImageV];
+//    [bottomImageV mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.mas_equalTo(weakSelf.view.mas_bottom).offset(-kTabbarSafeHeight);
+//        make.centerX.equalTo(weakSelf.view);
+//        make.width.equalTo(@375);
+//        make.height.equalTo(@101);
+//    }];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)back
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - UITableViewDelegate
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.titleArray.count;
+}
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+//    UniversalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    cell.titleLabel.text = self.titleArray[indexPath.row];
+//    cell.isInfo = YES;
+//    cell.lineView.hidden = NO;
+//    [cell setType:CellType_Arrows];
+    
+    //HelpHeadingCell
+    //HelpHeadingTableViewCell
+    
+//    HelpHeadingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HelpHeadingCell" forIndexPath:indexPath];
+
+    static NSString *CellIdentifier = @"HelpHeadingCell";
+    HelpHeadingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+       if (cell == nil)
+       {
+             cell = (HelpHeadingTableViewCell *) [[[NSBundle mainBundle] loadNibNamed:@"HelpHeadingTableViewCell" owner:self options:nil] lastObject];
+       }
+    
+    cell.labelHeading.text = self.titleArray[indexPath.row];
+    cell.backgroundMainView.layer.cornerRadius = 8.0;
+    cell.backgroundColor = [UIColor clearColor];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    InformationViewController *info = [[InformationViewController alloc]init];
+    info.navTitleStr = NSLocalizedString(@"PMVC_CommonProblemTitle", nil);
+    info.titleStr = self.titleArray[indexPath.row];
+
+    if (indexPath.row == 0) {
+        info.isOperationGuide = YES;
+    }else{
+        info.valueStr = self.infoArray[indexPath.row];
+    }
+    [self.navigationController pushViewController:info animated:YES];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return UITableViewAutomaticDimension; //kCellHeight;
+}
+
 
 /*
 #pragma mark - Navigation

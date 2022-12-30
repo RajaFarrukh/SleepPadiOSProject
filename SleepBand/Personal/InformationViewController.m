@@ -142,15 +142,15 @@
         make.height.equalTo(@12);
     }];
     
-    UIImageView *bottomImageV = [[UIImageView alloc]init];
-    bottomImageV.image = [UIImage imageNamed:@"search_bg_bottom"];
-    [self.view addSubview:bottomImageV];
-    [bottomImageV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(weakSelf.view.mas_bottom).offset(-kTabbarSafeHeight);
-        make.centerX.equalTo(weakSelf.view);
-        make.width.equalTo(@375);
-        make.height.equalTo(@101);
-    }];
+//    UIImageView *bottomImageV = [[UIImageView alloc]init];
+//    bottomImageV.image = [UIImage imageNamed:@"search_bg_bottom"];
+//    [self.view addSubview:bottomImageV];
+//    [bottomImageV mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.mas_equalTo(weakSelf.view.mas_bottom).offset(-kTabbarSafeHeight);
+//        make.centerX.equalTo(weakSelf.view);
+//        make.width.equalTo(@375);
+//        make.height.equalTo(@101);
+//    }];
     
 }
 -(BOOL)textViewShouldBeginEditing:(UITextView *)textView{
@@ -538,15 +538,15 @@
         make.bottom.mas_equalTo(weakSelf.view.mas_bottom).offset(-kTabbarSafeHeight-110);
     }];
     
-    UIImageView *bottomImageV = [[UIImageView alloc]init];
-    bottomImageV.image = [UIImage imageNamed:@"search_bg_bottom"];
-    [self.view addSubview:bottomImageV];
-    [bottomImageV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(weakSelf.view.mas_bottom).offset(-kTabbarSafeHeight);
-        make.centerX.equalTo(weakSelf.view);
-        make.width.equalTo(@375);
-        make.height.equalTo(@101);
-    }];
+//    UIImageView *bottomImageV = [[UIImageView alloc]init];
+//    bottomImageV.image = [UIImage imageNamed:@"search_bg_bottom"];
+//    [self.view addSubview:bottomImageV];
+//    [bottomImageV mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.mas_equalTo(weakSelf.view.mas_bottom).offset(-kTabbarSafeHeight);
+//        make.centerX.equalTo(weakSelf.view);
+//        make.width.equalTo(@375);
+//        make.height.equalTo(@101);
+//    }];
     
     //解决进去之后contentOffset不是顶点的问题
     CGPoint offset = self.textView.contentOffset;

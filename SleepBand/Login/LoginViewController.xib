@@ -35,9 +35,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sPO-W7-J9B">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdf-vo-rJr">
-                            <rect key="frame" x="128.5" y="38.5" width="113" height="33.5"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdf-vo-rJr">
+                            <rect key="frame" x="150.5" y="48.5" width="113" height="33.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="28"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -45,6 +44,8 @@
                     </subviews>
                     <color key="backgroundColor" red="0.4941176471" green="0.1019607843" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="xdf-vo-rJr" secondAttribute="bottom" constant="8" id="9z7-Ie-SzW"/>
+                        <constraint firstItem="xdf-vo-rJr" firstAttribute="centerX" secondItem="sPO-W7-J9B" secondAttribute="centerX" id="Hh0-L2-x7e"/>
                         <constraint firstAttribute="height" constant="90" id="WHC-vI-i8d"/>
                     </constraints>
                 </view>
