@@ -63,7 +63,7 @@
 - (XYWDayBackView *)dayBackView {
     if (_dayBackView == nil) {
         _dayBackView = [[XYWDayBackView alloc]init];
-        _dayBackView.backgroundColor = [UIColor whiteColor];
+        _dayBackView.backgroundColor = [UIColor clearColor];
     }
     return _dayBackView;
 }
@@ -71,7 +71,7 @@
 - (XYWWeekBackView *)weekBackView{
     if (_weekBackView == nil) {
         _weekBackView = [[XYWWeekBackView alloc]init];
-        _weekBackView.backgroundColor = [UIColor whiteColor];
+        _weekBackView.backgroundColor = [UIColor clearColor];
     }
     return _weekBackView;
 }
@@ -79,7 +79,7 @@
 - (XYWWeekBackView *)monthBackView{
     if (_monthBackView == nil) {
         _monthBackView = [[XYWWeekBackView alloc]init];
-        _monthBackView.backgroundColor = [UIColor whiteColor];
+        _monthBackView.backgroundColor = [UIColor clearColor];
     }
     return _monthBackView;
 }
@@ -506,7 +506,7 @@
 
 -(void)setUI{
     WS(weakSelf);
-    self.view.backgroundColor = [UIColor whiteColor];//背景
+    self.view.backgroundColor = [UIColor clearColor];//背景
     //左栏菜单
 //    UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //    [menuButton setImage:[UIImage imageNamed:@"sleep_icon_meny"] forState:UIControlStateNormal];
@@ -524,13 +524,26 @@
     [self.view addSubview:titleLabel];
     titleLabel.font = kControllerTitleFont;
     titleLabel.textColor = kControllerTitleColor;
-    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.textAlignment = NSTextAlignmentLeft;
     titleLabel.text = @"DASHBOARD";
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.view.mas_top).offset(kStatusBarHeight);
-        make.centerX.equalTo(weakSelf.view);
+        make.left.equalTo(@24);
+       // make.centerX.equalTo(weakSelf.view);
         make.height.equalTo(@44);
         make.width.equalTo(@200);
+    }];
+    
+    //Line
+    UIView *lineView = [[UIView alloc]init];
+    [self.view addSubview:lineView];
+    lineView.backgroundColor = [UIColor whiteColor];
+    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakSelf.view.mas_top).offset(kStatusBarHeight + 44);
+        make.left.equalTo(@24);
+        make.right.equalTo(@-24);
+       // make.centerX.equalTo(weakSelf.view);
+        make.height.equalTo(@2);
     }];
 
     //刷新按钮
@@ -547,8 +560,8 @@
     
     //选择日期按钮
     UIButton *selectDateBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [selectDateBtn setImage:[UIImage imageNamed:@"report_btn_calenda"] forState:UIControlStateNormal];
-    [self.view addSubview:selectDateBtn];
+    [selectDateBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    [self.view addSubview:selectDateBtn]; //report_btn_calenda
     [selectDateBtn addTarget:self action:@selector(selectDataDate) forControlEvents:UIControlEventTouchUpInside];
     [selectDateBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.view.mas_top).offset(kStatusBarHeight+(44-25.5)/2);
@@ -616,7 +629,7 @@
     
     self.myScrollView = [[UIView alloc]init];
     [self.view addSubview:self.myScrollView];
-    self.myScrollView.backgroundColor = [UIColor whiteColor];
+    self.myScrollView.backgroundColor = [UIColor clearColor];
     [self.myScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weakSelf.view);
         make.width.equalTo(@(kSCREEN_WIDTH*3));
@@ -665,15 +678,15 @@
         make.width.equalTo(@(kSCREEN_WIDTH));
         make.height.equalTo(@(PublicScrollViewHeight));
     }];
-    UIImageView *bottomImageV0 = [[UIImageView alloc]init];
-    bottomImageV0.image = bottomImg;
-    [self.myScrollView addSubview:bottomImageV0];
-    [bottomImageV0 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weakSelf.dayBackView.mas_bottom).offset(-101);
-        make.left.mas_equalTo(weakSelf.dayBackView.mas_left);
-        make.width.equalTo(@(kSCREEN_WIDTH));
-        make.height.equalTo(@101);
-    }];
+//    UIImageView *bottomImageV0 = [[UIImageView alloc]init];
+//    bottomImageV0.image = bottomImg;
+//    [self.myScrollView addSubview:bottomImageV0];
+//    [bottomImageV0 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.mas_equalTo(weakSelf.dayBackView.mas_bottom).offset(-101);
+//        make.left.mas_equalTo(weakSelf.dayBackView.mas_left);
+//        make.width.equalTo(@(kSCREEN_WIDTH));
+//        make.height.equalTo(@101);
+//    }];
     
     self.leftMenuV = [[LeftView alloc]init];
     [self.view addSubview:self.leftMenuV];
@@ -693,15 +706,16 @@
             make.width.mas_equalTo(kSCREEN_WIDTH);
             make.height.equalTo(@(PublicScrollViewHeight));
         }];
-        UIImageView *bottomImageV1 = [[UIImageView alloc]init];
-        bottomImageV1.image = bottomImg;
-        [self.myScrollView addSubview:bottomImageV1];
-        [bottomImageV1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(weakSelf.weekBackView.mas_bottom).offset(-101);
-            make.left.mas_equalTo(weakSelf.weekBackView.mas_left);
-            make.width.equalTo(@(kSCREEN_WIDTH));
-            make.height.equalTo(@101);
-        }];
+        
+//        UIImageView *bottomImageV1 = [[UIImageView alloc]init];
+//        bottomImageV1.image = bottomImg;
+//        [self.myScrollView addSubview:bottomImageV1];
+//        [bottomImageV1 mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.mas_equalTo(weakSelf.weekBackView.mas_bottom).offset(-101);
+//            make.left.mas_equalTo(weakSelf.weekBackView.mas_left);
+//            make.width.equalTo(@(kSCREEN_WIDTH));
+//            make.height.equalTo(@101);
+//        }];
         
         [monthBackScrollView addSubview:self.monthBackView];
         [self.monthBackView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -709,15 +723,16 @@
             make.width.mas_equalTo(kSCREEN_WIDTH);
             make.height.equalTo(@(PublicScrollViewHeight));
         }];
-        UIImageView *bottomImageV2 = [[UIImageView alloc]init];
-        bottomImageV2.image = bottomImg;
-        [self.myScrollView addSubview:bottomImageV2];
-        [bottomImageV2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(weakSelf.monthBackView.mas_bottom).offset(-101);
-            make.left.mas_equalTo(weakSelf.monthBackView.mas_left);
-            make.width.equalTo(@(kSCREEN_WIDTH));
-            make.height.equalTo(@101);
-        }];
+        
+//        UIImageView *bottomImageV2 = [[UIImageView alloc]init];
+//        bottomImageV2.image = bottomImg;
+//        [self.myScrollView addSubview:bottomImageV2];
+//        [bottomImageV2 mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.mas_equalTo(weakSelf.monthBackView.mas_bottom).offset(-101);
+//            make.left.mas_equalTo(weakSelf.monthBackView.mas_left);
+//            make.width.equalTo(@(kSCREEN_WIDTH));
+//            make.height.equalTo(@101);
+//        }];
         
         [self xyw_loadData];
         

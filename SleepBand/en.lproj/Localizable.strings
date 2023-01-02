@@ -338,7 +338,7 @@
 
 
 //我的设备
-"MDVC_DeleteDevice" = "Unbound device";
+"MDVC_DeleteDevice" = "UNBOUND DEVICE";
 "MDVC_FailForDeleteDevice" = "Unbundling failed";
 "MDVC_DeleteDeviceAlert" = "whether or not unbound device?";
 "MDVC_BatteryTitle" = "Battery";

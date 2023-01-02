@@ -8,15 +8,18 @@
 
 #import "XYWReportRangeDataSelectView.h"
 
-#define  SelectedColor [UIColor colorWithPatternImage:[UIImage imageNamed:@"report_bg_togglebtn_select"]]
-#define  NormalColor [UIColor colorWithPatternImage:[UIImage imageNamed:@"report_bg_togglebtn_none"]]
+//#define  [UIColor colorWithHexString:@"8807AE"] [UIColor colorWithPatternImage:[UIImage imageNamed:@"report_bg_togglebtn_select"]]
+//#define  [UIColor whiteColor] [UIColor colorWithPatternImage:[UIImage imageNamed:@"report_bg_togglebtn_none"]]
 
 @interface XYWReportRangeDataSelectView ()
-
+ 
 @end
 
-@implementation XYWReportRangeDataSelectView
+//UIColor * [UIColor colorWithHexString:@"8807AE"] = [UIColor colorWithHexString:@"8807AE"];
+//UIColor * [UIColor whiteColor] = [UIColor whiteColor];
 
+@implementation XYWReportRangeDataSelectView
+ 
 - (instancetype)init{
     
     if (self = [super init]) {
@@ -28,7 +31,7 @@
         // 周btn
         UIButton *weekBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [weekBtn setTitle:NSLocalizedString(@"RMVC_Week", nil) forState:UIControlStateNormal];
-        weekBtn.backgroundColor = NormalColor;
+        weekBtn.backgroundColor = [UIColor whiteColor];
         weekBtn.titleLabel.font = [UIFont systemFontOfSize:10.0 weight:UIFontWeightLight];
         weekBtn.tag = 101;
         [weekBtn setTitleColor:[UIColor colorWithHexString:@"#b1aca8"] forState:UIControlStateNormal];
@@ -38,7 +41,7 @@
         // 天btn
         UIButton *dayBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [dayBtn setTitle:NSLocalizedString(@"RMVC_Day", nil) forState:UIControlStateNormal];
-        dayBtn.backgroundColor = SelectedColor;
+        dayBtn.backgroundColor = [UIColor colorWithHexString:@"8807AE"];
         dayBtn.titleLabel.font = [UIFont systemFontOfSize:10.0 weight:UIFontWeightLight];
         dayBtn.tag = 100;
         [dayBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -48,7 +51,7 @@
         //月btn
         UIButton *monthBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [monthBtn setTitle:NSLocalizedString(@"RMVC_Month", nil) forState:UIControlStateNormal];
-        monthBtn.backgroundColor = NormalColor;
+        monthBtn.backgroundColor = [UIColor whiteColor];
         monthBtn.titleLabel.font = [UIFont systemFontOfSize:10.0 weight:UIFontWeightLight];
         monthBtn.tag = 102;
         [monthBtn setTitleColor:[UIColor colorWithHexString:@"#b1aca8"] forState:UIControlStateNormal];
@@ -62,24 +65,25 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-
+    
     __weak typeof(self) weakSelf = self;
+    
     [self.weekBtn mas_makeConstraints:^(MASConstraintMaker *make) {
          make.top.equalTo(@16);
          make.centerX.equalTo(weakSelf);
-         make.width.equalTo(@54);
+         make.width.equalTo(@74);
          make.height.equalTo(@43.5);
      }];
     [self.dayBtn mas_makeConstraints:^(MASConstraintMaker *make){
          make.top.equalTo(weakSelf.weekBtn);
          make.right.mas_equalTo(weakSelf.weekBtn.mas_left).offset(-30);
-         make.width.equalTo(@54);
+         make.width.equalTo(@74);
          make.height.equalTo(@43.5);
      }];
     [self.monthBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.weekBtn);
         make.left.mas_equalTo(weakSelf.weekBtn.mas_right).offset(30);
-        make.width.equalTo(@54);
+        make.width.equalTo(@74);
         make.height.equalTo(@43.5);
     }];
     
@@ -108,7 +112,7 @@
 #pragma mark - 自定义
 // 刷新按钮
 - (void)refreshButtonBackgroundColor{
-    
+    //8807AE
     UIColor * normalTextColor = [UIColor colorWithHexString:@"#b1aca8"];
     UIColor * selectTextColor = [UIColor whiteColor];
     
@@ -116,9 +120,9 @@
     [self.weekBtn setTitleColor:self.selectTag == self.weekBtn.tag ? selectTextColor : normalTextColor forState:UIControlStateNormal];
     [self.monthBtn setTitleColor:self.selectTag == self.monthBtn.tag ? selectTextColor : normalTextColor forState:UIControlStateNormal];
     
-    self.dayBtn.backgroundColor = self.selectTag == self.dayBtn.tag ? SelectedColor : NormalColor;
-    self.weekBtn.backgroundColor = self.selectTag == self.weekBtn.tag ? SelectedColor : NormalColor;
-    self.monthBtn.backgroundColor = self.selectTag == self.monthBtn.tag ? SelectedColor : NormalColor;
+    self.dayBtn.backgroundColor = self.selectTag == self.dayBtn.tag ? [UIColor colorWithHexString:@"8807AE"] : [UIColor whiteColor];
+    self.weekBtn.backgroundColor = self.selectTag == self.weekBtn.tag ? [UIColor colorWithHexString:@"8807AE"] : [UIColor whiteColor];
+    self.monthBtn.backgroundColor = self.selectTag == self.monthBtn.tag ? [UIColor colorWithHexString:@"8807AE"] : [UIColor whiteColor];
 }
 
 //

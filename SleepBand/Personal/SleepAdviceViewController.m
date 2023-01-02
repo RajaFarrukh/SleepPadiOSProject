@@ -9,6 +9,7 @@
 #import "SleepAdviceViewController.h"
 #import "UniversalTableViewCell.h"
 #import "InformationViewController.h"
+#import "HelpHeadingTableViewCell.h"
 
 @interface SleepAdviceViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic)UITableView *tableView;
@@ -33,14 +34,27 @@
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    UniversalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+//    UniversalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    cell.titleLabel.text = self.titleArray[indexPath.row];
+//    cell.isInfo = YES;
+//    cell.lineView.hidden = NO;
+//    [cell setType:CellType_Arrows];
+    static NSString *CellIdentifier = @"HelpHeadingCell";
+    HelpHeadingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+       if (cell == nil)
+       {
+             cell = (HelpHeadingTableViewCell *) [[[NSBundle mainBundle] loadNibNamed:@"HelpHeadingTableViewCell" owner:self options:nil] lastObject];
+       }
+    
+    cell.labelHeading.text =self.titleArray[indexPath.row];
+    cell.backgroundMainView.layer.cornerRadius = 8.0;
+    cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.titleLabel.text = self.titleArray[indexPath.row];
-    cell.isInfo = YES;
-    cell.lineView.hidden = NO;
-    [cell setType:CellType_Arrows];
+    
     return cell;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     InformationViewController *info = [[InformationViewController alloc]init];
     info.navTitleStr = NSLocalizedString(@"PMVC_SleepAdviceTitle", nil);
@@ -48,12 +62,15 @@
     info.valueStr = self.infoArray[indexPath.row];
     [self.navigationController pushViewController:info animated:YES];
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return kCellHeight;
+    return UITableViewAutomaticDimension; //kCellHeight;
 }
+
 -(void)tableViewDidSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     WS(weakSelf);
 }
+
 -(void)setUI{
     WS(weakSelf);
     self.view.backgroundColor = [UIColor whiteColor];
@@ -111,15 +128,15 @@
     //    [footerView addSubview:logoutBtn];
     //    self.tableView.tableFooterView = footerView;
     
-    UIImageView *bottomImageV = [[UIImageView alloc]init];
-    bottomImageV.image = [UIImage imageNamed:@"search_bg_bottom"];
-    [self.view addSubview:bottomImageV];
-    [bottomImageV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(weakSelf.view.mas_bottom).offset(-kTabbarSafeHeight);
-        make.centerX.equalTo(weakSelf.view);
-        make.width.equalTo(@375);
-        make.height.equalTo(@101);
-    }];
+//    UIImageView *bottomImageV = [[UIImageView alloc]init];
+//    bottomImageV.image = [UIImage imageNamed:@"search_bg_bottom"];
+//    [self.view addSubview:bottomImageV];
+//    [bottomImageV mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.mas_equalTo(weakSelf.view.mas_bottom).offset(-kTabbarSafeHeight);
+//        make.centerX.equalTo(weakSelf.view);
+//        make.width.equalTo(@375);
+//        make.height.equalTo(@101);
+//    }];
     
     
     

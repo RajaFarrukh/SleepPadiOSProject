@@ -353,8 +353,7 @@
     }];
 }
 
--(void)setUI2
-{
+-(void)setUI2 {
     WS(weakSelf);
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(exitEdit)]];
     
@@ -483,6 +482,7 @@
         make.height.equalTo(@(textFieldHeight));
     }];
 }
+
 -(void)setPhoneUI{
     WS(weakSelf);
 //    UIView *phoneNumCountryView = [[UIView alloc]init];
@@ -597,12 +597,15 @@
         make.height.equalTo(@1);
     }];
 }
+
 -(void)clearPhoneNumText{
     self.phoneNumTextField.text = @"";
 }
+
 -(void)clearEmailText{
     self.emailTextField.text = @"";
 }
+
 -(void)setEmailUI{
     WS(weakSelf);
     self.emailTextField = [[UITextField alloc]initWithFrame:CGRectZero];
@@ -651,7 +654,8 @@
         make.height.equalTo(@1);
     }];
 }
-- (void)didReceiveMemoryWarning {
+
+-(void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

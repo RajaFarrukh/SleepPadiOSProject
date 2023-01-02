@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong,nonatomic)IBOutlet UIView *backgroundMainView;
 @property(strong,nonatomic)IBOutlet UILabel *labelHeading;
 @property(strong,nonatomic)IBOutlet UILabel *labelValue;
+@property(strong,nonatomic)IBOutlet UIImageView *arrowImageView;
 
 @end
 

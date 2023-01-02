@@ -12,6 +12,7 @@
 #import "SearchDeviceViewController.h"
 #import "AppDelegate.h"
 #import "DeviceUpdateViewController.h"
+#import "AccountInfoTableViewCell.h"
 
 @interface MyDeviceViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic)UITableView *deviceTableView;
@@ -24,6 +25,8 @@
 @property (assign,nonatomic)int battery;//设备电池电量
 @property (assign,nonatomic)BOOL isCharge;//设备充电状态
 @property (strong,nonatomic)AlertView *alertView;
+@property(strong,nonatomic)IBOutlet UIButton *deleteBtn;
+
 @end
 
 @implementation MyDeviceViewController
@@ -114,6 +117,7 @@
 //        [SVProgressHUD show];
     }
 }
+
 #pragma mark - 删除设备
 -(void)deleteDevice{
     WS(weakSelf);
@@ -139,6 +143,7 @@
 //    [actionSheet addAction:ok];
 //    [self presentViewController:actionSheet animated:YES completion:nil];
 }
+
 -(void)unBind{
     WS(weakSelf);
     NSLog(@"网络请求中...开始解绑设备...-状态码：6");
@@ -273,47 +278,89 @@
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    UniversalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.titleLabel.text = self.menuArray[indexPath.row];
-    cell.lineView.hidden = NO;
+    
+    static NSString *CellIdentifier = @"AccountInfoCell";
+    AccountInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil)
+    {
+        cell = (AccountInfoTableViewCell *) [[[NSBundle mainBundle] loadNibNamed:@"AccountInfoTableViewCell" owner:self options:nil] lastObject];
+    }
+    
     if (indexPath.row == 0) {
-        [cell setType:CellType_Vaule];
-        
+        cell.labelHeading.text = @"Battery";
+        cell.arrowImageView.hidden = true;
         if (self.isCharge) {
             if (self.battery == 100) {
-                cell.valueLabel.text = [NSString stringWithFormat:@"%d%%",self.battery];
+                cell.labelValue.text = [NSString stringWithFormat:@"%d%%",self.battery];
             }else{
-                cell.valueLabel.text = NSLocalizedString(@"MDVC_BatteryCharge", nil);
+                cell.labelValue.text = NSLocalizedString(@"MDVC_BatteryCharge", nil);
             }
         }else{
-            cell.valueLabel.text = [NSString stringWithFormat:@"%d%%",self.battery];
+            cell.labelValue.text = [NSString stringWithFormat:@"%d%%",self.battery];
         }
+
+    } else if (indexPath.row == 1) {
+        cell.labelHeading.text = @"Firmware Versioin";
         
+        cell.labelValue.text = [NSString stringWithFormat:@"V%@_%@",self.hardwareVersion,self.softwareVersion];
+    } else {
+        cell.labelHeading.text = self.menuArray[indexPath.row];
+        cell.arrowImageView.hidden = true;
+        if (self.blueToothManager.currentPeripheral.name.length > 0) {
+            cell.labelValue.text = self.blueToothManager.currentPeripheral.name;
+        }else{
+            cell.labelValue.text = [MSCoreManager sharedManager].userModel.deviceCode;
+        }
+    }
+    
+    cell.backgroundMainView.layer.cornerRadius = 8.0;
+    cell.backgroundColor = [UIColor clearColor];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    
+//    UniversalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    cell.titleLabel.text = self.menuArray[indexPath.row];
+//    cell.lineView.hidden = NO;
+//    if (indexPath.row == 0) {
+//        [cell setType:CellType_Vaule];
+//
+//        if (self.isCharge) {
+//            if (self.battery == 100) {
+//                cell.valueLabel.text = [NSString stringWithFormat:@"%d%%",self.battery];
+//            }else{
+//                cell.valueLabel.text = NSLocalizedString(@"MDVC_BatteryCharge", nil);
+//            }
+//        }else{
+//            cell.valueLabel.text = [NSString stringWithFormat:@"%d%%",self.battery];
+//        }
+
 //        NSString * chargeString1 = self.isCharge?@"🔋":@"";//ϟ 🔋 ⚡
 //        NSString * chargeString2 = self.isCharge?NSLocalizedString(@"MDVC_BatteryCharge", nil):@"";
 //        NSString * chargeString3 = self.isCharge?@"":[NSString stringWithFormat:@"%d%%",self.battery];
 //        NSString * chargeString4 = self.isCharge&&self.battery==100?[NSString stringWithFormat:@"%d%%",self.battery]:@"";
 //        cell.valueLabel.text = [NSString stringWithFormat:@"%@%@%@%@",chargeString1,chargeString2,chargeString3,chargeString4];
+    
 //        cell.valueLabel.text = [NSString stringWithFormat:@"%d%%%@",self.battery,chargeString];
-    }else if (indexPath.row == 1){
-        [cell setType:CellType_VauleArrows];
-        if (self.softwareVersion.length > 0) {
-            cell.valueLabel.text = [NSString stringWithFormat:@"V%@_%@",self.hardwareVersion,self.softwareVersion];
-        }
-    }else if (indexPath.row == 2){
-        [cell setType:CellType_Vaule];
-        if (self.blueToothManager.currentPeripheral.name.length > 0) {
-            cell.valueLabel.text = self.blueToothManager.currentPeripheral.name;
-        }else{
-            cell.valueLabel.text = [MSCoreManager sharedManager].userModel.deviceCode;
-        }
-    }else{
-        [cell setType:CellType_Vaule];
-//        cell.valueLabel.text = @"fa:fa:fs:sa";
-    }
+//    }else if (indexPath.row == 1){
+//        [cell setType:CellType_VauleArrows];
+//        if (self.softwareVersion.length > 0) {
+//            cell.valueLabel.text = [NSString stringWithFormat:@"V%@_%@",self.hardwareVersion,self.softwareVersion];
+//        }
+//    }else if (indexPath.row == 2){
+//        [cell setType:CellType_Vaule];
+//        if (self.blueToothManager.currentPeripheral.name.length > 0) {
+//            cell.valueLabel.text = self.blueToothManager.currentPeripheral.name;
+//        }else{
+//            cell.valueLabel.text = [MSCoreManager sharedManager].userModel.deviceCode;
+//        }
+//    }else{
+//        [cell setType:CellType_Vaule];
+////        cell.valueLabel.text = @"fa:fa:fs:sa";
+//    }
     return cell;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 1) {
         WS(weakSelf);
@@ -330,9 +377,11 @@
     }
     
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 47;
 }
+
 -(void)setUI{
     WS(weakSelf);
     
@@ -362,15 +411,15 @@
         make.width.equalTo(@200);
     }];
     
-    UIImageView *bottomImageV = [[UIImageView alloc]init];
-    bottomImageV.image = [UIImage imageNamed:@"search_bg_bottom"];
-    [self.view addSubview:bottomImageV];
-    [bottomImageV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(weakSelf.view.mas_bottom).offset(-kTabbarSafeHeight);
-        make.centerX.equalTo(weakSelf.view);
-        make.width.equalTo(@375);
-        make.height.equalTo(@101);
-    }];
+//    UIImageView *bottomImageV = [[UIImageView alloc]init];
+//    bottomImageV.image = [UIImage imageNamed:@"search_bg_bottom"];
+//    [self.view addSubview:bottomImageV];
+//    [bottomImageV mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.mas_equalTo(weakSelf.view.mas_bottom).offset(-kTabbarSafeHeight);
+//        make.centerX.equalTo(weakSelf.view);
+//        make.width.equalTo(@375);
+//        make.height.equalTo(@101);
+//    }];
     
     self.deviceTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
     [self.view addSubview:self.deviceTableView];
@@ -392,18 +441,18 @@
     
     UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kSCREEN_WIDTH-68, 250)];
     //footerView.backgroundColor = [UIColor redColor];
-    UIButton *deleteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    deleteBtn.frame = CGRectMake((kSCREEN_WIDTH-68)/2-22.5, 42+150, 45, 36);
-    [deleteBtn setImage:[UIImage imageNamed:@"me_btn_unbounddevice"] forState:UIControlStateNormal];
-    [deleteBtn addTarget:self action:@selector(deleteDevice) forControlEvents:UIControlEventTouchUpInside];
-    [footerView addSubview:deleteBtn];
+    //UIButton *deleteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+   // deleteBtn.frame = CGRectMake((kSCREEN_WIDTH-68)/2-22.5, 42+150, 45, 36);
+    //[self.deleteBtn setImage:[UIImage imageNamed:@"me_btn_unbounddevice"] forState:UIControlStateNormal];
+    [self.deleteBtn addTarget:self action:@selector(deleteDevice) forControlEvents:UIControlEventTouchUpInside];
+    //[footerView addSubview:deleteBtn];
     
-    UILabel *deleteBtnTitleL = [[UILabel alloc]initWithFrame:CGRectMake((kSCREEN_WIDTH-68)/2-50, 88+150, 100, 12)];
-    deleteBtnTitleL.font = [UIFont systemFontOfSize:12 weight:UIFontWeightLight];
-    deleteBtnTitleL.textColor = [UIColor colorWithHexString:@"#575756"];
-    deleteBtnTitleL.textAlignment = NSTextAlignmentCenter;
-    deleteBtnTitleL.text = NSLocalizedString(@"MDVC_DeleteDevice", nil);
-    [footerView addSubview:deleteBtnTitleL];
+//    UILabel *deleteBtnTitleL = [[UILabel alloc]initWithFrame:CGRectMake((kSCREEN_WIDTH-68)/2-50, 88+150, 100, 12)];
+//    deleteBtnTitleL.font = [UIFont systemFontOfSize:12 weight:UIFontWeightLight];
+//    deleteBtnTitleL.textColor = [UIColor colorWithHexString:@"#575756"];
+//    deleteBtnTitleL.textAlignment = NSTextAlignmentCenter;
+//    deleteBtnTitleL.text = NSLocalizedString(@"MDVC_DeleteDevice", nil);
+//    [footerView addSubview:deleteBtnTitleL];
     
     self.deviceTableView.tableFooterView = footerView;
     
@@ -415,6 +464,7 @@
 //    }];
     
 }
+
 -(void)setUI2{
     WS(weakSelf);
     
@@ -470,15 +520,15 @@
     
     
     UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kSCREEN_WIDTH, 100)];
-    UIButton *deleteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    deleteBtn.frame = CGRectMake(kMargin*2, 55, kSCREEN_WIDTH-kMargin*4, 45);
-    deleteBtn.backgroundColor = [UIColor whiteColor];
-    deleteBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-    deleteBtn.layer.cornerRadius = textFieldCornerRadius;
-    [deleteBtn setTitleColor:[UIColor colorWithHexString:@"#666666"] forState:UIControlStateNormal];
-    [deleteBtn setTitle:NSLocalizedString(@"MDVC_DeleteDevice", nil) forState:UIControlStateNormal];
-    [deleteBtn addTarget:self action:@selector(deleteDevice) forControlEvents:UIControlEventTouchUpInside];
-    [footerView addSubview:deleteBtn];
+   // UIButton *deleteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+   // deleteBtn.frame = CGRectMake(kMargin*2, 55, kSCREEN_WIDTH-kMargin*4, 45);
+    self.deleteBtn.backgroundColor = [UIColor whiteColor];
+    self.deleteBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+    self.deleteBtn.layer.cornerRadius = textFieldCornerRadius;
+    [self.deleteBtn setTitleColor:[UIColor colorWithHexString:@"#666666"] forState:UIControlStateNormal];
+    [self.deleteBtn setTitle:NSLocalizedString(@"MDVC_DeleteDevice", nil) forState:UIControlStateNormal];
+    [self.deleteBtn addTarget:self action:@selector(deleteDevice) forControlEvents:UIControlEventTouchUpInside];
+    //[footerView addSubview:deleteBtn];
     self.deviceTableView.tableFooterView = footerView;
 }
 

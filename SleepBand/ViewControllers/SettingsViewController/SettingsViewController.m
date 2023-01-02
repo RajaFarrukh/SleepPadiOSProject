@@ -10,6 +10,9 @@
 #import "AccountViewController.h"
 #import "HelpViewController.h"
 #import "SleepMainViewController.h"
+#import "SleepAdviceViewController.h"
+#import "MyDeviceViewController.h"
+#import "TermsAndConditionViewController.h"
 
 @interface SettingsViewController ()
 
@@ -62,10 +65,32 @@
  // Desc: Action method for get sleep consulation option
  */
 - (IBAction)onBtnGetSleepConsultation:(id)sender {
-//    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    SleepMainViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"SleepMainViewController"];
-//    [[self navigationController] setNavigationBarHidden:YES animated:YES];
-//    [self.navigationController pushViewController:controller animated:YES];
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    SleepAdviceViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"SleepAdviceViewController"];
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+/*
+ // Method: onBtnDevice
+ // Desc: Action method for get device Info
+ */
+- (IBAction)onBtnDevice:(id)sender {
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MyDeviceViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"MyDeviceViewController"];
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+/*
+ // Method: onBtnTermsAndConditions
+ // Desc: Action method for Terms & Conditions
+ */
+- (IBAction)onBtnTermsAndConditions:(id)sender {
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    TermsAndConditionViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"TermsAndConditionViewController"];
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end
