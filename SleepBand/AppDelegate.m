@@ -11,6 +11,7 @@
 #import <UserNotifications/UserNotifications.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import "MainTabBarViewController.h"
+#import "AppInfoViewController.h"
 
 @interface AppDelegate ()<UNUserNotificationCenterDelegate>
 @end
@@ -55,7 +56,6 @@
     }
     self.window.rootViewController = [[WelcomePageViewController alloc]initWithNibName:@"WelcomePageViewController" bundle:[NSBundle mainBundle]];
     [self.window makeKeyAndVisible];
-    
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onVolumeChanged:) name:@"AVSystemController_SystemVolumeDidChangeNotification" object:nil];
     
@@ -272,6 +272,35 @@
     //    self.mainTabBar = nil;
 }
 
+-(void)setRootForInfoController
+{
+    if (self.mainNavigation == nil)
+    {
+        
+//        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:[[ReportMainViewController alloc]init]];
+        
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MainTabBarViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"AppInfoViewController"];
+        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:controller];
+        
+    }else
+    {
+//        NSMutableArray *controllers = [NSMutableArray arrayWithArray:self.mainNavigation.viewControllers];
+//        [controllers removeAllObjects];
+//
+//        controllers[0] = [[ReportMainViewController alloc] init];
+//        self.mainNavigation.viewControllers = controllers;
+//        [self.mainNavigation setViewControllers:controllers];
+        
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MainTabBarViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"AppInfoViewController"];
+        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:controller];
+        
+    }
+    self.window.rootViewController = self.mainNavigation;
+    //    self.mainTabBar = nil;
+}
+
 //报告-new
 //- (void)setRootViewControllerForReportMain
 //{
@@ -305,8 +334,7 @@
         MainTabBarViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"];
         self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:controller];
         
-    }else
-    {
+    } else {
 //        NSMutableArray *controllers = [NSMutableArray arrayWithArray:self.mainNavigation.viewControllers];
 //        [controllers removeAllObjects];
 //        controllers[0] = [[AlarmClockMainViewController alloc] init];

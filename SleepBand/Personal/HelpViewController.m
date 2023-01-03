@@ -21,12 +21,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.titleArray = @[NSLocalizedString(@"PMVC_Title1", nil),NSLocalizedString(@"PMVC_Title2", nil),NSLocalizedString(@"PMVC_Title3", nil),NSLocalizedString(@"PMVC_Title4", nil),NSLocalizedString(@"PMVC_Title5", nil),NSLocalizedString(@"PMVC_Title6", nil),NSLocalizedString(@"PMVC_Title7", nil),NSLocalizedString(@"PMVC_Title8", nil),NSLocalizedString(@"PMVC_Title9", nil),NSLocalizedString(@"PMVC_Title10", nil),NSLocalizedString(@"PMVC_Title11", nil)];
+    //@[NSLocalizedString(@"PMVC_Title1", nil)
+    self.titleArray = @[NSLocalizedString(@"PMVC_Title2", nil),NSLocalizedString(@"PMVC_Title3", nil),NSLocalizedString(@"PMVC_Title4", nil),NSLocalizedString(@"PMVC_Title5", nil),NSLocalizedString(@"PMVC_Title6", nil),NSLocalizedString(@"PMVC_Title7", nil),NSLocalizedString(@"PMVC_Title8", nil),NSLocalizedString(@"PMVC_Title9", nil),NSLocalizedString(@"PMVC_Title10", nil),NSLocalizedString(@"PMVC_Title11", nil)];
     self.infoArray = @[@"",NSLocalizedString(@"PMVC_Info1", nil),NSLocalizedString(@"PMVC_Info2", nil),NSLocalizedString(@"PMVC_Info3", nil),NSLocalizedString(@"PMVC_Info4", nil),NSLocalizedString(@"PMVC_Info5", nil),NSLocalizedString(@"PMVC_Info6", nil),NSLocalizedString(@"PMVC_Info7", nil),NSLocalizedString(@"PMVC_Info8", nil),NSLocalizedString(@"PMVC_Info9", nil),NSLocalizedString(@"PMVC_Info10", nil)];
     [self setUI];
 }
 
--(void)setUI{
+-(void)setUI {
     WS(weakSelf);
     
     self.view.backgroundColor = [UIColor whiteColor];
@@ -108,8 +109,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)back
-{
+-(void)back {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -149,12 +149,12 @@
     InformationViewController *info = [[InformationViewController alloc]init];
     info.navTitleStr = NSLocalizedString(@"PMVC_CommonProblemTitle", nil);
     info.titleStr = self.titleArray[indexPath.row];
-
-    if (indexPath.row == 0) {
-        info.isOperationGuide = YES;
-    }else{
-        info.valueStr = self.infoArray[indexPath.row];
-    }
+    info.valueStr = self.infoArray[indexPath.row];
+//    if (indexPath.row == 0) {
+//        info.isOperationGuide = YES;
+//    }else{
+//        info.valueStr = self.infoArray[indexPath.row];
+//    }
     [self.navigationController pushViewController:info animated:YES];
 }
 

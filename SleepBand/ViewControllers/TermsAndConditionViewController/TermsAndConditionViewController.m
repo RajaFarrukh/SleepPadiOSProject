@@ -49,13 +49,21 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
 /*
  // Method: onBtnAccountCancelation
  // Desc: Action method for account cancelation button
  */
 - (IBAction)onBtnAccountCancelation:(id)sender {
     [self cancelAccount];
+}
+
+/*
+ // Method: onBtnUserServiceAgrements
+ // Desc: Action method for user service agrements
+ */
+- (IBAction)onBtnUserServiceAgrements:(id)sender {
+    NSURL* url = [[NSURL alloc] initWithString: @"https://www.sleeppad.in/terms-conditions/"];
+    [[UIApplication sharedApplication] openURL: url];
 }
 
 @end

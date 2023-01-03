@@ -421,6 +421,52 @@
 }
 
 /*
+ // Method: onBtnTermonBtnLogoutsAndConditions
+ // Desc: Action method for logout
+ */
+- (IBAction)onBtnLogout:(id)sender {
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:NSLocalizedString(@"AVC_Logout", nil)
+                                 message:@"Are You Sure Want to Logout!"
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    //Add Buttons
+    
+    UIAlertAction* yesButton = [UIAlertAction
+                                actionWithTitle:@"Yes"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action) {
+        //Handle your yes please button action here
+        BlueToothManager *manager = [BlueToothManager shareIsnstance];
+        [manager stopScan];
+        if(manager.isConnect){
+            [manager manualCancelConnect];
+        }
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:@"0" forKey:@"isLogin"];
+        [defaults synchronize];
+        AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        [delegate setRootViewControllerForLogin];
+        
+    }];
+    
+    UIAlertAction* noButton = [UIAlertAction
+                               actionWithTitle:@"Cancel"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+        //Handle no, thanks button
+    }];
+    
+    //Add your buttons to alert controller
+    
+    [alert addAction:yesButton];
+    [alert addAction:noButton];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation

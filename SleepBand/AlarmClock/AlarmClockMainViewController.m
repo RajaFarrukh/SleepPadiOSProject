@@ -848,7 +848,7 @@
     
     UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [menuButton setImage:[UIImage imageNamed:@"sleep_icon_meny"] forState:UIControlStateNormal];
-    [self.view addSubview:menuButton];
+    //[self.view addSubview:menuButton];
     [menuButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.view.mas_top).offset(kStatusBarHeight);
         make.left.mas_equalTo(weakSelf.view.mas_left).offset(0);
@@ -876,7 +876,6 @@
         make.width.equalTo(@54);
     }];
     [self.blueToothBtn addTarget:self action:@selector(blueTooth:) forControlEvents:UIControlEventTouchUpInside];
-    
     
     UILabel *titleLabel = [[UILabel alloc]init];
     [self.view addSubview:titleLabel];
@@ -944,15 +943,15 @@
     header.stateLabel.textColor = [UIColor colorWithHexString:@"#1b86a4"];
     self.alarmClockTableView.mj_header = header;
     
-    UIImageView *bottomImageV = [[UIImageView alloc]init];
-    bottomImageV.image = [UIImage imageNamed:@"search_bg_bottom"];
-    [self.view addSubview:bottomImageV];
-    [bottomImageV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(weakSelf.view.mas_bottom).offset(-kTabbarSafeHeight);
-        make.centerX.equalTo(weakSelf.view);
-        make.width.equalTo(@375);
-        make.height.equalTo(@101);
-    }];
+//    UIImageView *bottomImageV = [[UIImageView alloc]init];
+//    bottomImageV.image = [UIImage imageNamed:@"search_bg_bottom"];
+//    [self.view addSubview:bottomImageV];
+//    [bottomImageV mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.mas_equalTo(weakSelf.view.mas_bottom).offset(-kTabbarSafeHeight);
+//        make.centerX.equalTo(weakSelf.view);
+//        make.width.equalTo(@375);
+//        make.height.equalTo(@101);
+//    }];
     
     self.leftMenuV = [[LeftView alloc]init];
     [self.view addSubview:self.leftMenuV];

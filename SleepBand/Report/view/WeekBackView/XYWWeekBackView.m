@@ -143,7 +143,7 @@
 #pragma mark --setUI 呼吸数据表
 - (void)setUIForBreathRate{
     
-    XYWReportBaseChartView * reportBreathRateView = [[XYWReportBaseChartView alloc]initWithIconStr:@"realtime_icon_breath" title:NSLocalizedString(@"RTVC_RespiratoryRateTitle", nil) bgImgStr:@"report_hr_bg" valueStr:[NSString stringWithFormat:@"--%@",NSLocalizedString(@"SMVC_HeartRateUnit", nil)] themeColor:@"#c3ad8c" gridYLineColor:@"#CEAC87" titleYArr:@[@"40",@"30",@"20",@"10",@"0"]];
+    XYWReportBaseChartView * reportBreathRateView = [[XYWReportBaseChartView alloc]initWithIconStr:@"realtime_icon_breath" title:NSLocalizedString(@"RTVC_RespiratoryRateTitle", nil) bgImgStr:@"report_br_bg" valueStr:[NSString stringWithFormat:@"--%@",NSLocalizedString(@"SMVC_HeartRateUnit", nil)] themeColor:@"#c3ad8c" gridYLineColor:@"#CEAC87" titleYArr:@[@"40",@"30",@"20",@"10",@"0"]];
     [self addSubview:reportBreathRateView];
     self.reportBreathRateView = reportBreathRateView;
     

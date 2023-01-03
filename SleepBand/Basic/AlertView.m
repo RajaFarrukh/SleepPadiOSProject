@@ -379,7 +379,7 @@
     }];
     
     UIImageView *alertBgIV = [[UIImageView alloc]init];
-    alertBgIV.image = [UIImage imageNamed:@"me_box_bottom_bg"];
+    alertBgIV.image = [UIImage imageNamed:@"me_box_bg"];
     [self addSubview:alertBgIV];
     [alertBgIV mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -493,7 +493,7 @@
     }];
     
     self.alertBgIV = [[UIImageView alloc]init];
-    self.alertBgIV.image = [UIImage imageNamed:@"me_box_bottom_bg"];
+    self.alertBgIV.image = [UIImage imageNamed:@"me_box_bg"];
     [self addSubview:self.alertBgIV];
     self.alertBgIV.userInteractionEnabled = YES;
     [self.alertBgIV mas_makeConstraints:^(MASConstraintMaker *make) {

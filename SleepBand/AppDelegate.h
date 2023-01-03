@@ -35,6 +35,7 @@
 //个人界面
 -(void)setRootViewControllerForMe;
 
+-(void)setRootForInfoController;
 //报告界面
 //-(void)setRootViewControllerForReportMain;
 

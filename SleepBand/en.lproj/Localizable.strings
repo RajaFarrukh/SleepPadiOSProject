@@ -161,10 +161,10 @@
 "RMVC_SleepNoData" = "No sleep data for the day.";
 "RMVC_Hour" = "h";
 "RMVC_Minute" = "min";
-"RMVC_Sober" = "Awake";
-"RMVC_LightSleep" = "Light";
-"RMVC_MiddleSleep" = "Middle";
-"RMVC_DeepSleep" = "Deep";
+"RMVC_Sober" = "A";//"Awake";
+"RMVC_LightSleep" = "L";//"Light";
+"RMVC_MiddleSleep" = "M";//"Middle";
+"RMVC_DeepSleep" = "D";//"Deep";
 "RMVC_DeepSleepTime" = "Deep sleep";
 "RMVC_MiddleSleepTime" = "Middle sleep";
 "RMVC_LightSleepTime" = "Light sleep";
