@@ -848,7 +848,7 @@
     
     UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [menuButton setImage:[UIImage imageNamed:@"sleep_icon_meny"] forState:UIControlStateNormal];
-    //[self.view addSubview:menuButton];
+    [self.view addSubview:menuButton];
     [menuButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.view.mas_top).offset(kStatusBarHeight);
         make.left.mas_equalTo(weakSelf.view.mas_left).offset(0);
@@ -856,6 +856,7 @@
         make.width.equalTo(@54);
     }];
     [menuButton addTarget:self action:@selector(menuBtnTouch) forControlEvents:UIControlEventTouchUpInside];
+    menuButton.hidden = true;
     
     self.blueToothBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.blueToothBtn setImage:[UIImage imageNamed:@"sleep_icon_ununited"] forState:UIControlStateNormal];
