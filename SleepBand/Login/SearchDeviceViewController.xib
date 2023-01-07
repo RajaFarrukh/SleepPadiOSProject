@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,34 +21,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looking for your SLEEP PAD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0i7-Sg-oyo">
-                    <rect key="frame" x="82" y="10" width="226" height="21.666666666666671"/>
+                    <rect key="frame" x="82" y="53.999999999999993" width="226" height="21.666666666666664"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <color key="textColor" red="0.4941176471" green="0.1019607843" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWy-xi-JgF">
-                    <rect key="frame" x="342" y="7" width="38" height="28"/>
-                    <color key="tintColor" red="0.4941176471" green="0.1019607843" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" image="searchdevice_refresh.png"/>
-                    <connections>
-                        <action selector="btnRefreshClicked:" destination="-1" eventType="touchUpInside" id="EQP-W7-L7I"/>
-                    </connections>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please keep your smart device  close tou your SLEEP PAD" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWf-cP-zDA">
-                    <rect key="frame" x="10" y="58" width="370" height="40.666666666666657"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please keep your smart device  close to your SLEEP PAD" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWf-cP-zDA">
+                    <rect key="frame" x="10" y="102" width="370" height="40.666666666666657"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once your SLEEP PAD is connected to the App, the LED light turns green." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAY-UK-v6r">
-                    <rect key="frame" x="10" y="748.33333333333337" width="370" height="40.666666666666629"/>
+                    <rect key="frame" x="10" y="714.33333333333337" width="370" height="40.666666666666629"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7J6-BL-r7S">
-                    <rect key="frame" x="20" y="799" width="350" height="45"/>
+                    <rect key="frame" x="20" y="765" width="350" height="45"/>
                     <color key="backgroundColor" red="0.21480131150000001" green="0.18554228540000001" blue="0.53336435559999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="CKW-Az-F1p"/>
@@ -68,9 +59,18 @@
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VMV-Ea-qUL">
-                    <rect key="frame" x="20" y="118.66666666666669" width="350" height="609.66666666666652"/>
+                    <rect key="frame" x="20" y="162.66666666666669" width="350" height="531.66666666666652"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hy-qT-eN3">
+                    <rect key="frame" x="350" y="54" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="YcK-le-W4F"/>
+                        <constraint firstAttribute="width" constant="24" id="n6V-TX-xoK"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="searchdevice_refresh"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -83,9 +83,9 @@
                 <constraint firstItem="7J6-BL-r7S" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="FKN-wQ-yis"/>
                 <constraint firstItem="0i7-Sg-oyo" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Jc0-gh-PNB"/>
                 <constraint firstItem="7J6-BL-r7S" firstAttribute="top" secondItem="rAY-UK-v6r" secondAttribute="bottom" constant="10" id="RMD-CZ-LT1"/>
-                <constraint firstItem="EWy-xi-JgF" firstAttribute="centerY" secondItem="0i7-Sg-oyo" secondAttribute="centerY" id="Xvf-KT-hqV"/>
+                <constraint firstItem="8hy-qT-eN3" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="WDB-2f-ADW"/>
                 <constraint firstItem="rAY-UK-v6r" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-10" id="aVV-1T-qAR"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EWy-xi-JgF" secondAttribute="trailing" constant="10" id="ezs-Xc-9s2"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8hy-qT-eN3" secondAttribute="trailing" constant="16" id="ex3-y3-2hH"/>
                 <constraint firstItem="VMV-Ea-qUL" firstAttribute="top" secondItem="zWf-cP-zDA" secondAttribute="bottom" constant="20" id="lAP-zA-5gX"/>
                 <constraint firstItem="0i7-Sg-oyo" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="mlw-eh-R1a"/>
                 <constraint firstItem="VMV-Ea-qUL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="msB-QB-Zec"/>
@@ -97,7 +97,7 @@
         </view>
     </objects>
     <resources>
-        <image name="searchdevice_refresh.png" width="14" height="14"/>
+        <image name="searchdevice_refresh" width="16" height="16"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

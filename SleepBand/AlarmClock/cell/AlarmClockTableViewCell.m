@@ -27,8 +27,8 @@
     [self.switchBtn setBackgroundImage:[UIImage imageNamed:@"alarm_switch_on"] forState:UIControlStateSelected];
     [self.switchBtn addTarget:self action:@selector(switchBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.switchBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@34);
-        make.height.equalTo(@17);
+        make.width.equalTo(@38);
+        make.height.equalTo(@34);
         make.centerY.equalTo(weakSelf.contentView);
         make.right.mas_equalTo(weakSelf.contentView.mas_right).offset(0);
     }];

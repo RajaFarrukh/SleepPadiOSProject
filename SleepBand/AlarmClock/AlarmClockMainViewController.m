@@ -36,8 +36,7 @@
 
 @implementation AlarmClockMainViewController
 
--(void)viewWillAppear:(BOOL)animated
-{
+-(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 //    AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 //    delegate.mainTabBar.tabBarView.hidden = NO;
@@ -54,12 +53,12 @@
     }
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     self.blueToothManager = [BlueToothManager shareIsnstance];
     self.coreManager = [MSCoreManager sharedManager];
+    self.navigationController.navigationBar.hidden = true;
     
     [self setUI];
     
@@ -95,8 +94,7 @@
 }
 
 #pragma mark - 获取设置
--(void)getClockSetting
-{
+-(void)getClockSetting {
     self.myClockArray = [[NSMutableArray alloc]init];
     self.deviceClockArray = [[NSMutableArray alloc]init];
     self.allClockArray = [[NSMutableArray alloc]init];
@@ -107,8 +105,7 @@
 }
 
 //计算智能闹钟个数
--(void)getDeviceIntelligentClockCount
-{
+-(void)getDeviceIntelligentClockCount {
     self.intelligentClockCount = 0;
     for (AlarmClockModel *model in self.allClockArray)
     {
@@ -840,11 +837,28 @@
     
 }
 
+-(void)back
+{
+    //    self.backBlock();
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - 设置界面UI
 -(void)setUI
 {
     WS(weakSelf);
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backButton setImage:[UIImage imageNamed:@"signup_icon_back"] forState:UIControlStateNormal];
+    [self.view addSubview:backButton];
+    [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    [backButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakSelf.view.mas_top).offset(kStatusBarHeight);
+        make.left.mas_equalTo(weakSelf.view.mas_left).offset(0);
+        make.width.equalTo(@54);
+        make.height.equalTo(@44);
+    }];
     
     UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [menuButton setImage:[UIImage imageNamed:@"sleep_icon_meny"] forState:UIControlStateNormal];

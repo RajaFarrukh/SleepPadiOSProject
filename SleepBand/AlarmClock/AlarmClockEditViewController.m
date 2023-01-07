@@ -36,12 +36,12 @@
 }
 
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     WS(weakSelf);
     [super viewDidLoad];
     self.blueToothManager = [BlueToothManager shareIsnstance];
     self.coreManager = [MSCoreManager sharedManager];
+    self.navigationController.navigationBar.hidden = true;
     
     if (self.isAdd)
     {
@@ -132,8 +132,7 @@
 }
 
 #pragma mark --删除服务器闹钟
--(void)deleteServerClock
-{
+-(void)deleteServerClock {
     NSLog(@"删除服务器闹钟");
     [self.coreManager getDeleteAlarmClockForData:@{@"id":[NSNumber numberWithInt:self.changeModel.clockId]} WithResponse:^(ResponseInfo *info) {
         [SVProgressHUD dismiss];
@@ -147,8 +146,7 @@
 
 #pragma mark --编辑闹钟
 //编辑闹钟
--(void)editServerClock:(AlarmClockModel *)model
-{
+-(void)editServerClock:(AlarmClockModel *)model {
     NSLog(@"修改服务器闹钟");
     WS(weakSelf);
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:model.mj_keyValues];
@@ -183,8 +181,7 @@
 }
 
 #pragma mark --增加服务器闹钟
--(void)addServerClock
-{
+-(void)addServerClock {
      NSLog(@"新增服务器闹钟");
     WS(weakSelf);
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:self.changeModel.mj_keyValues];
@@ -231,8 +228,7 @@
 }
 
 #pragma mark --新增闹钟
--(void)addClock
-{
+-(void)addClock {
     //    NSArray *result = [self.changeModel.repeat  sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2){
     //        return [obj1 compare:obj2]; //升序
     //    }];
@@ -283,8 +279,7 @@
 
 #pragma mark --更新闹钟数组
 //更新闹钟数组
--(void)refreshAllClockArray
-{
+-(void)refreshAllClockArray {
     for(int i = 0 ; i < self.coreManager.clockArray.count; i++){
         AlarmClockModel *model = self.coreManager.clockArray[i];
         if (model == self.oldModel) {
@@ -303,8 +298,7 @@
 
 #pragma mark --编辑闹钟
 //编辑闹钟
--(void)editClock
-{
+-(void)editClock {
     //先判断新闹钟保存位置
     if(!self.changeModel.isPhone ||  (self.changeModel.isPhone && self.changeModel.isIntelligentWake)){
         NSLog(@"新闹钟保存在设备");
@@ -372,14 +366,12 @@
 }
 
 //添加推送
--(void)addNotification:(AlarmClockModel*)model
-{
+-(void)addNotification:(AlarmClockModel*)model {
 //    [ClockTool addNotification:model];
 }
 
 //删除推送
--(void)deleteNotification:(AlarmClockModel*)model
-{
+-(void)deleteNotification:(AlarmClockModel*)model {
 //    [ClockTool deleteNotification:model];
 }
 
