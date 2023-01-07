@@ -81,8 +81,7 @@
     [super viewDidAppear:animated];
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     if (@available(iOS 11.0, *)) {
@@ -154,9 +153,7 @@
     
 }
 
-
--(void)autoSleepMonitorNotification:(NSNotification *)notification
-{
+-(void)autoSleepMonitorNotification:(NSNotification *)notification {
     NSString *autoSleepMonitor = notification.object;
     self.autoSleepMonitor = [autoSleepMonitor intValue];
 //    if (self.manager.isConnect) {
@@ -171,8 +168,7 @@
     
 }
 
--(void)setBlueTooth
-{
+-(void)setBlueTooth {
     WS(weakSelf);
     self.manager.HrRrBlock = ^(NSString *HR, NSString *RR) {
         dispatch_async(dispatch_get_main_queue(), ^{
