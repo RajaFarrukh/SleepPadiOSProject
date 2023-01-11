@@ -92,6 +92,7 @@
     [self.deviceTableView reloadData];
     [self scanDevice];
 }
+
 -(void)scanDevice{
     if(!self.manager.isScan){
 //        [self test2];

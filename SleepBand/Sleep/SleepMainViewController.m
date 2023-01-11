@@ -671,8 +671,7 @@
 }
 
 #pragma mark - 点击实时数据
--(void)realTime
-{
+-(void)realTime {
     if (self.manager.isConnect)
     {
         //push  实时
@@ -687,23 +686,20 @@
     }
 }
 
--(void)help
-{
+-(void)help {
     HelpViewController *help = [[HelpViewController alloc]init];
     [self tabBarViewHidden];
     [self.navigationController pushViewController:help animated:YES];
     
 }
 
--(void)setting
-{
+-(void)setting {
     [self tabBarViewHidden];
     AutoSleepSettingViewController *setting = [[AutoSleepSettingViewController alloc]init];
     [self.navigationController  pushViewController:setting animated:YES];
 }
 
--(void)connectPeripheral
-{
+-(void)connectPeripheral {
     if(self.manager.centralManagerState == 5)
     {
         
@@ -726,15 +722,13 @@
     }
 }
 
--(void)alarmClock
-{
+-(void)alarmClock {
     AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     [delegate setRootViewControllerForClock];
 }
 
 #pragma mark - 点击蓝牙按钮
--(void)blueTooth:(UIButton *)sender
-{
+-(void)blueTooth:(UIButton *)sender {
     if (!sender.selected) {
         //连接蓝牙
         [self connectPeripheral];
@@ -752,8 +746,7 @@
     
 }
 
--(void)addSleepAnimation
-{
+-(void)addSleepAnimation {
     CABasicAnimation *opacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
     
     opacityAnimation.fromValue = [NSNumber numberWithFloat:1.0];
@@ -784,14 +777,12 @@
     [self.sleepBtn.layer addAnimation:opacityAnimation forKey:nil];
 }
 
--(void)removeSleepAnimation
-{
+-(void)removeSleepAnimation {
     [self.sleepBtn.layer removeAllAnimations];
 }
 
 #pragma mark - 点击睡眠按钮
--(void)sleep:(UIButton *)sender
-{
+-(void)sleep:(UIButton *)sender {
     WS(weakSelf);
     if(self.manager.isConnect)
     {
@@ -895,6 +886,7 @@
     }
     
 }
+
 //获取距离当前最近的闹钟
 -(AlarmClockModel *)getLatelyAlarmClockWithAlarmClockArr:(NSMutableArray*)allAlarmClock{
     
@@ -1009,8 +1001,7 @@
 }
 
 #pragma mark - 同步
--(void)synchronization
-{
+-(void)synchronization {
     WS(weakSelf);
     NSLog(@"同步!!!!");
     //    [SVProgressHUD showProgress:0 status:NSLocalizedString(@"Synchronizationing", nil)];
@@ -1069,8 +1060,7 @@
 }
 
 //左栏回调
--(void)menuBtnTouch
-{
+-(void)menuBtnTouch {
     if (self.leftMenuV.hidden)
     {
         [self.leftMenuV showView];
@@ -1081,8 +1071,7 @@
     }
 }
 
--(void)setUI
-{
+-(void)setUI {
     WS(weakSelf);
     UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [menuButton setImage:[UIImage imageNamed:@"sleep_icon_meny"] forState:UIControlStateNormal];
@@ -1371,8 +1360,7 @@
 //    }];
 }
 
--(void)setUI2
-{
+-(void)setUI2 {
     WS(weakSelf);
     
     UIImageView *bgImageView = [[UIImageView alloc]init];
@@ -1579,8 +1567,7 @@
     [self.sleepBtn addTarget:self action:@selector(sleep:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
