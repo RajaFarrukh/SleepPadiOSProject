@@ -598,8 +598,6 @@
     }];
 }
 
-
-
 -(void)clearPhoneNumText{
     self.phoneNumTextField.text = @"";
 }

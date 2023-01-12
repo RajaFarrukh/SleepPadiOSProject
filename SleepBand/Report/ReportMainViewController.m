@@ -482,7 +482,7 @@
 }
 
 #pragma mark --左栏btn
--(void)menuBtnTouch{
+-(void)menuBtnTouch{ 
     if (self.leftMenuV.hidden){
         [self.leftMenuV showView];
     }else{

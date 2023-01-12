@@ -33,20 +33,24 @@
     [self.sendTimer invalidate];
     self.sendTimer = nil;
 }
+
 -(NSMutableArray *)deviceArray{
     if (_deviceArray == nil) {
         _deviceArray = [[NSMutableArray alloc]init];
     }
     return _deviceArray;
 }
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
+
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self scanDevice];
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -85,6 +89,7 @@
     };
     
 }
+
 #pragma mark - 刷新
 -(void)refresh{
     [self.manager stopScan];
@@ -103,6 +108,7 @@
 //        [self.manager scanAllPeripheral];
 //    }
 }
+
 -(void)refreshTableView{
     WS(weakSelf);
     dispatch_async(dispatch_get_main_queue(), ^{

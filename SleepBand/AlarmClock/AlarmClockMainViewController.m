@@ -844,8 +844,7 @@
 }
 
 #pragma mark - 设置界面UI
--(void)setUI
-{
+-(void)setUI {
     WS(weakSelf);
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -982,8 +981,7 @@
 //    }];
 }
 
--(void)setUI2
-{
+-(void)setUI2 {
     WS(weakSelf);
     
     UIImageView *bgImageView = [[UIImageView alloc]init];

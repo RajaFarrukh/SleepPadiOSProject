@@ -14,7 +14,7 @@
 #import "SearchDeviceViewController.h"
 #import <SafariServices/SafariServices.h>
 #import "MainTabBarViewController.h"
-
+#import "SearchDeviceViewController.h"
 
 
 @interface LoginViewController ()<UINavigationControllerDelegate,UITextFieldDelegate>
@@ -531,15 +531,15 @@
             if ([SAMKeychain setPassword:password forService:serviceName account:account]) {
                 NSLog(@"存储账号密码成功");
             }
-//            SearchDeviceViewController *search = [[SearchDeviceViewController alloc]initWithNibName:@"SearchDeviceViewController" bundle: [NSBundle mainBundle]];
-//            search.isPushWithLogin = YES;
-//            [weakSelf.navigationController pushViewController:search animated:YES];
+            SearchDeviceViewController *search = [[SearchDeviceViewController alloc]initWithNibName:@"SearchDeviceViewController" bundle: [NSBundle mainBundle]];
+            search.isPushWithLogin = YES;
+            [weakSelf.navigationController pushViewController:search animated:YES];
             
             ///////// Code Added by Farrukh Raja
-            MainTabBarViewController *objMainTabBarViewController = [[MainTabBarViewController alloc] initWithNibName:@"MainTabBarViewController" bundle:[NSBundle mainBundle]];
-            [self.navigationController pushViewController:objMainTabBarViewController animated:YES];
-            
-            
+//            MainTabBarViewController *objMainTabBarViewController = [[MainTabBarViewController alloc] initWithNibName:@"MainTabBarViewController" bundle:[NSBundle mainBundle]];
+//            [self.navigationController pushViewController:objMainTabBarViewController animated:YES];
+//
+         
         } else {
             [weakSelf.navigationController popToRootViewControllerAnimated:YES];
         }
