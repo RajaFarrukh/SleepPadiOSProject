@@ -292,10 +292,13 @@
 -(void)checkBlueToothState{
     
 }
+
 #pragma mark - UITableViewDelegate
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.deviceArray.count;
 }
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     DeviceCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DeviceCell" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -306,6 +309,7 @@
     cell.deviceLabel.text = peripheral.name;
     return cell;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.sendTimer == nil) {
         self.sendTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(countDown) userInfo:nil repeats:YES];
@@ -348,9 +352,11 @@
     
     
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50.0;
 }
+
 -(void)setUI{
     WS(weakSelf);
     self.deviceTableView.backgroundColor = [UIColor clearColor];

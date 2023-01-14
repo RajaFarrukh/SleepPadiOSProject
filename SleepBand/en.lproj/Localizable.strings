@@ -85,7 +85,7 @@
 "RVC_ConfirmPassword" = "Confirm Password";
 "RVC_SignIn" = "Sign IN";
 "RVC_Send" = "Send";
-"RVC_CodePlaceholder" = "Verification Code";
+"RVC_CodePlaceholder" = "Otp Code";
 "RVC_AlertRegisterSuccess" = "Registration is successful, please remember your account and password.";
 "RVC_AlertUserExists" = "User already exists.";
 "RVC_AlertRegisterFail" = "Sign up failed.";

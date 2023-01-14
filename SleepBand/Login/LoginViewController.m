@@ -315,16 +315,16 @@
         //搜索所有蓝牙外-(登录自动连接蓝牙)
         [[BlueToothManager shareIsnstance] scanAllPeripheral];
         
-    }else{
+    } else {
         //  没有连接过设备就跳到选择设备界面
-//        SearchDeviceViewController *search = [[SearchDeviceViewController alloc]initWithNibName:@"SearchDeviceViewController" bundle: [NSBundle mainBundle]];
-//        search.isPushWithLogin = YES;
-//        [self.navigationController pushViewController:search animated:YES];
+        SearchDeviceViewController *search = [[SearchDeviceViewController alloc]initWithNibName:@"SearchDeviceViewController" bundle: [NSBundle mainBundle]];
+        search.isPushWithLogin = YES;
+        [self.navigationController pushViewController:search animated:YES];
         ///////// Code Added by Farrukh Raja
 
-        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        MainTabBarViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"];
-        [self.navigationController pushViewController:controller animated:YES];
+//        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        MainTabBarViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"];
+//        [self.navigationController pushViewController:controller animated:YES];
     }
 }
 #pragma mark - 选择国家

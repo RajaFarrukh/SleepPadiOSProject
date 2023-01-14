@@ -187,11 +187,11 @@
 {
     if (self.mainNavigation == nil)
     {
-//       self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:[[SearchDeviceViewController alloc]initWithNibName:@"SearchDeviceViewController" bundle: [NSBundle mainBundle]]];
+       self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:[[SearchDeviceViewController alloc]initWithNibName:@"SearchDeviceViewController" bundle: [NSBundle mainBundle]]];
        
-        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        MainTabBarViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"];
-        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:controller];
+//        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        MainTabBarViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"];
+//        self.mainNavigation = [[UINavigationController alloc]initWithRootViewController:controller];
         
         //[[UINavigationController alloc]initWithRootViewController:[[SearchDeviceViewController alloc]initWithNibName:@"MainTabBarViewController" bundle: [NSBundle mainBundle]]];
         

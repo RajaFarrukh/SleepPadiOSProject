@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -136,57 +136,6 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0IV-L4-u1s" userLabel="BaseScroll">
                     <rect key="frame" x="0.0" y="150" width="414" height="712"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zQ0-Fv-eML" userLabel="Sign In">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="712"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="6aQ-CC-SO3">
-                                    <rect key="frame" x="20.5" y="248.5" width="373" height="215"/>
-                                    <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t37-kJ-yHI">
-                                            <rect key="frame" x="0.0" y="0.0" width="373" height="55"/>
-                                            <color key="backgroundColor" red="0.94117647059999998" green="0.93333333330000001" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="55" id="dwj-8P-tMC"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" textContentType="email"/>
-                                            <connections>
-                                                <outlet property="delegate" destination="-1" id="9ae-Le-B4l"/>
-                                            </connections>
-                                        </textField>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jLw-nv-IzQ">
-                                            <rect key="frame" x="0.0" y="80" width="373" height="55"/>
-                                            <color key="backgroundColor" red="0.94117647059999998" green="0.93333333330000001" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
-                                            <connections>
-                                                <outlet property="delegate" destination="-1" id="Yhe-tb-lxx"/>
-                                            </connections>
-                                        </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXk-XH-rMd">
-                                            <rect key="frame" x="0.0" y="160" width="373" height="55"/>
-                                            <color key="backgroundColor" red="0.2156862745" green="0.1843137255" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="Sign In">
-                                                <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
-                                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </buttonConfiguration>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <integer key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </button>
-                                    </subviews>
-                                </stackView>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstItem="6aQ-CC-SO3" firstAttribute="centerY" secondItem="zQ0-Fv-eML" secondAttribute="centerY" id="5Il-yC-Maj"/>
-                                <constraint firstItem="6aQ-CC-SO3" firstAttribute="width" secondItem="zQ0-Fv-eML" secondAttribute="width" multiplier="0.9" id="8jl-13-kVd"/>
-                                <constraint firstItem="6aQ-CC-SO3" firstAttribute="centerX" secondItem="zQ0-Fv-eML" secondAttribute="centerX" id="Kig-dv-0FK"/>
-                            </constraints>
-                        </view>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SN3-cm-uLZ" userLabel="Sign Up">
                             <rect key="frame" x="0.0" y="71" width="414" height="570"/>
                             <subviews>
@@ -226,7 +175,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZ4-vg-fgz">
                                             <rect key="frame" x="0.0" y="240" width="373" height="55"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pin Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7pQ-pD-vnh">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Otp Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7pQ-pD-vnh">
                                                     <rect key="frame" x="0.0" y="0.0" width="293" height="55"/>
                                                     <color key="backgroundColor" red="0.94117647059999998" green="0.93333333330000001" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -287,12 +236,62 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <keyboardLayoutGuide key="keyboard" id="axf-My-p1G"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="4WB-UL-n0b" firstAttribute="centerX" secondItem="SN3-cm-uLZ" secondAttribute="centerX" id="666-0b-lY5"/>
                                 <constraint firstItem="4WB-UL-n0b" firstAttribute="centerY" secondItem="SN3-cm-uLZ" secondAttribute="centerY" id="8Bt-LA-HWo"/>
                                 <constraint firstItem="4WB-UL-n0b" firstAttribute="width" secondItem="SN3-cm-uLZ" secondAttribute="width" multiplier="0.9" id="pqH-Hb-JRx"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zQ0-Fv-eML" userLabel="Sign In">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="712"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="6aQ-CC-SO3">
+                                    <rect key="frame" x="20.5" y="248.5" width="373" height="215"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t37-kJ-yHI">
+                                            <rect key="frame" x="0.0" y="0.0" width="373" height="55"/>
+                                            <color key="backgroundColor" red="0.94117647059999998" green="0.93333333330000001" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="55" id="dwj-8P-tMC"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" textContentType="email"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="-1" id="9ae-Le-B4l"/>
+                                            </connections>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jLw-nv-IzQ">
+                                            <rect key="frame" x="0.0" y="80" width="373" height="55"/>
+                                            <color key="backgroundColor" red="0.94117647059999998" green="0.93333333330000001" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="-1" id="Yhe-tb-lxx"/>
+                                            </connections>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXk-XH-rMd">
+                                            <rect key="frame" x="0.0" y="160" width="373" height="55"/>
+                                            <color key="backgroundColor" red="0.2156862745" green="0.1843137255" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Sign In">
+                                                <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
+                                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </buttonConfiguration>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <integer key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="6aQ-CC-SO3" firstAttribute="centerY" secondItem="zQ0-Fv-eML" secondAttribute="centerY" id="5Il-yC-Maj"/>
+                                <constraint firstItem="6aQ-CC-SO3" firstAttribute="width" secondItem="zQ0-Fv-eML" secondAttribute="width" multiplier="0.9" id="8jl-13-kVd"/>
+                                <constraint firstItem="6aQ-CC-SO3" firstAttribute="centerX" secondItem="zQ0-Fv-eML" secondAttribute="centerX" id="Kig-dv-0FK"/>
                             </constraints>
                         </view>
                     </subviews>
