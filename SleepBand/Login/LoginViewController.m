@@ -283,8 +283,7 @@
     [self presentViewController:alertController animated:true completion:nil];
 }
 
--(void)loginSuccess:(NSString *)token
-{
+-(void)loginSuccess:(NSString *)token {
     //存储账号密码
     NSString *serviceName= @"com.keychainSleepBandLoginAccount.data";
     NSString *account = self.phoneNumTextField.text.length ? self.phoneNumTextField.text:self.emailTextField.text;
@@ -327,6 +326,7 @@
 //        [self.navigationController pushViewController:controller animated:YES];
     }
 }
+
 #pragma mark - 选择国家
 -(void)selectCountry{
     WS(weakSelf);
